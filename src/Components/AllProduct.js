@@ -450,7 +450,7 @@ const AllProduct = () => {
             <h4>{item.name}</h4>
             <p className="desc">{item.desc}</p>
             <p className="price"><i>{item.price}</i></p>
-            <button className="buy-btn">Buy now</button>
+            <Link to="/OrderDone" state={{product:item}} className="buy-btn">Buy now</Link>
           </div>
         ))}
       </div>

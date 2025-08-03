@@ -228,7 +228,7 @@ const SeedsPage = () => {
             <h4>{item.name}</h4>
             <p className="desc">{item.description}</p>
             <p className="price"><i>{item.price}</i> <span> / {item.unit}</span></p>
-            <button className="buy-btn">Buy now</button>
+            <Link to="/OrderDone" state={{product:item}} className="buy-btn">Buy now</Link>
           </div>
         ))}
       </div>

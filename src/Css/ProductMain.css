@@ -66,10 +66,11 @@
   font-weight: bold;
   font-size: 22px;
 }
-.title{
+.websitetitle{
   position: relative;
   top: 100px;
   left: 310px;
+  font-weight: 900;
   font-family: sans-serif;
   color: green;
   font-size: 40px;

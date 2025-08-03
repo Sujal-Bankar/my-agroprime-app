@@ -3,6 +3,7 @@ import React from 'react';
 import '../Css/cashcrops.css';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const equipmentData = [
   {
@@ -126,20 +127,12 @@ function Equipments() {
             <img src={item.image} alt={item.name} />
             <h4>{item.name}</h4>
             <p className="price">{item.price}</p>
-            <button className="buy-btn">Buy now</button>
+            <Link to="/OrderDone" state={{product:item}} className="buy-btn">Buy now</Link>
           </div>
         ))}
       </section>
 
-      {/* Footer */}
-      <footer>
-        <div>2025 AgroPrime</div>
-        <div className="social-links">
-          <a href="#">Facebook</a> |
-          <a href="#">Instagram</a> |
-          <a href="#">Youtube</a>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }

@@ -63,7 +63,7 @@ function ProductMain() {
         Explore Products
       </Link>
       <div>
-      <p className='title'>AgroPrime Products</p>
+      <p className='websitetitle'>AgroPrime Products</p>
       </div>
       <div className='product'>    
       <div className="product-main">

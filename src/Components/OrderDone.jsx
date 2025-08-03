@@ -3,18 +3,21 @@ import { useLocation } from "react-router-dom";
 import "../Css/OrderDone.css";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const OrderDone = () => {
   const location = useLocation();
   const product = location.state?.product;
 
   return ( 
+    <>
+      <Navbar/>
+      
     <div className="page">
-      <div>
-        <Navbar/>
-      </div>
       <div className="card">
-        <div className="icon-check">✔</div>
+        <div>
+        <img className="checkmark" src="/images/checkmark.gif"  autoPlay muted></img>
+        </div>
         <h1 className="title">Order Confirmed!</h1>
         <p className="subtitle">
           Thank you for your purchase of our agricultural products.
@@ -70,6 +73,8 @@ const OrderDone = () => {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
