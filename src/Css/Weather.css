@@ -1,0 +1,219 @@
+.body-main{
+    margin-top: 100px;
+}
+.mainn{
+    background-color: white;
+}
+#sun-cloud-image{
+    margin-left: 40px;
+    height: 50px;
+    width: 80px;
+}
+
+#heading{
+    padding: 20px 0 0 40px ;
+    display: flex;
+}
+#heading h1{
+    margin: 14px 0px 0px 8px;
+    font-size: 25px;
+}
+#line{
+    margin: -45px 0px 0px 168px;
+}
+#heading input{
+    width: 74vh;
+    position: relative;
+    top: 20px;
+    margin: 0 0 0 350px;
+font-weight: 700;
+}
+#search-in{
+    background-color: aliceblue;
+    border: 1px solid #2e7d32; 
+}
+#search-in::placeholder{
+       color:#2e7d32;
+}
+.list-group{
+    position: absolute;
+    top: 179px;
+    right: 275px;
+    height: 330px;
+    width: 500px;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 999;
+  opacity: 1;
+}
+.list-group-item{
+    background-color: aliceblue !important;
+    font-weight: 900;
+    font-family: 'Segoe UI', sans-serif;
+}
+#search{
+    position: relative;
+    width: 5vw;
+    height: 5vh;    
+    top: 19px;
+    left: 10px;
+    font-weight:700;
+    background-color: aliceblue;
+}
+#search:hover{
+    background-color: #2e7d32;
+}
+#loc{
+    display: flex;
+    padding: 5px 0 0 45px;
+}
+#current-loc{
+    color: rgba(75, 75, 75, 0.786);
+    margin: 2px 0 0 5px;
+    font-size: 20px;
+}
+#map-pin{
+    margin-left: 120px;
+    height: 30px;
+    width: 30px;border-radius: 50%;
+}
+.rain-ani{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 160vw;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+.rain-ani h2{
+    font-size: 50px;
+    padding: 100px 0 0 0 ;
+}
+.rain-ani p{
+    padding-left: 80px;
+    font-size: 30px;
+}
+#rainboy{
+    height: 50vh;
+    width: 20vw;
+    position: relative;
+    }
+@keyframes slide {
+    from{
+        left: 160vw;
+    }
+    to{
+        left: 5vw;
+    }
+}
+#more{
+    position: absolute;
+    padding-top: 8px;
+    font-weight: 700;
+    background-color: aliceblue;
+    height: 6vh;
+    width: 8vw;
+    top: 237px;
+    right: 1008px;
+}
+#more:hover{
+    background-color: #2e7d32 ;
+}
+.rain-sub{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.rain-sub p{
+    font-size: 30px;
+}
+@media (max-width: 1024px) {
+  #heading input {
+    width: 50vw;
+    margin-left: 150px;
+    top: 10px;
+  }
+
+  .list-group {
+    top: 140px;
+    right: 100px;
+    width: 90vw;
+    max-height: 150px;
+  }
+
+  #more {
+    right: 50px;
+    width: 15vw;
+    height: 5vh;
+    top: 180px;
+  }
+
+  #map-pin {
+    margin-left: 40px;
+    height: 25px;
+    width: 25px;
+  }
+
+  .rain-ani {
+    left: 90vw;
+  }
+
+  #rainboy {
+    width: 40vw;
+    height: 40vh;
+  }
+}
+
+@media (max-width: 600px) {
+  #heading {
+    flex-direction: column;
+    padding-left: 20px;
+  }
+
+  #heading input {
+    width: 90vw;
+    margin: 10px 0 0 0;
+    top: 0;
+  }
+
+  .list-group {
+    position: static;
+    width: 100%;
+    max-height: 120px;
+    top: auto;
+    right: auto;
+    border-radius: 0;
+  }
+
+  #more {
+    position: static;
+    margin: 10px 0;
+    width: 90vw;
+    height: 40px;
+    top: auto;
+    right: auto;
+  }
+
+  #map-pin {
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
+  }
+
+  .rain-ani {
+    animation-name: none;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #rainboy {
+    width: 90vw;
+    height: 30vh;
+  }
+}

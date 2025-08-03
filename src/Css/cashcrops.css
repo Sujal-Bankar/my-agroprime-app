@@ -1,0 +1,159 @@
+/* cashcrops.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+}
+
+.fertilizer-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background: linear-gradient(to right, #76c043, #a4e269);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 30px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+}
+
+.navbar li.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.category-header {
+  margin-top: 100px; /* to give space under navbar */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.back-arrow {
+  text-decoration: none;
+  font-size: 24px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.active-tab {
+  background-color: #76c043;
+  color: white;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 40px 30px;
+  flex-grow: 1;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.06);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;           /* Makes image fit full card width */
+  height: 180px;         /* Adjust height as needed (e.g. 200px or more) */
+  object-fit: contain;   /* Keeps aspect ratio, avoids stretching */
+  margin-bottom: 10px;   /* Spacing from text */
+}
+
+
+.product-card h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+}
+
+.desc {
+  font-size: 14px;
+  color: #555;
+  margin: 8px 0;
+}
+
+.price {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.price i {
+  color: #2d9d38;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.price span {
+  font-size: 13px;
+  color: #111;
+}
+
+.buy-btn {
+  margin-top: 5px;
+  background-color: #66c44c;
+  color: white;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.buy-btn:hover {
+  background-color: #59b03e;
+}
+
+footer {
+  background-color: #1f2326;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer .social-links a {
+  color: #6cc24a;
+  margin: 0 8px;
+  text-decoration: none;
+}

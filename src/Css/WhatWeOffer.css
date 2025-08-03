@@ -1,0 +1,90 @@
+.whatweoffer-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff;
+  background-image: url("https://tse2.mm.bing.net/th/id/OIP.qpRg3bvhzv8oONDFfopvRQAAAA?pid=ImgDet&w=191&h=260&c=7&dpr=1.3&o=7&rm=3");
+  
+}
+
+.whatweoffer-subtitle {
+  color: #f4a600;
+  font-family: 'Covered By Your Grace', cursive;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.whatweoffer-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.whatweoffer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.whatweoffer-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-bottom: 20px;
+}
+
+.whatweoffer-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.2);
+}
+
+.whatweoffer-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.whatweoffer-card:hover .whatweoffer-image {
+  transform: scale(1.05);
+}
+
+.whatweoffer-content {
+  padding: 20px;
+  position: relative;
+}
+
+.whatweoffer-icon {
+  background-color: #cddc39;
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  position: absolute;
+  right: 20px;
+  top: -28px;
+}
+
+.whatweoffer-titleText {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.whatweoffer-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+.whatweoffer-link {
+  text-decoration: none;
+}
