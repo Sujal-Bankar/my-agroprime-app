@@ -91,7 +91,7 @@ const Navbar = ({ variant }) => {
             </Link>
 
             <Link
-              to="/AgroProducts"
+              to="/ProductMain"
               style={styles.navLink}
               onMouseEnter={(e) => handleHover(e, true)}
               onMouseLeave={(e) => handleHover(e, false)}
