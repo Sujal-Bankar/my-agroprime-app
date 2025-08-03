@@ -59,7 +59,7 @@ function ProductMain() {
         <h2 className='head'>Explore Our AgroPrime <br />Products</h2>
         <p className='subhead'>Get the best quality products and equipments</p>
       </section>
-      <Link className='discover-btn'>
+      <Link className='discover-btn' to="/AgroProducts">
         Explore Products
       </Link>
       <div>
