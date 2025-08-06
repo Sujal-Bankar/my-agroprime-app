@@ -134,6 +134,8 @@ nav a {
   font-size: 13px;
   cursor: pointer;
   text-decoration: none;
+  width: 130px;
+  height: 40px;
 }
 
 .view-all {

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Css/cashcrops.css';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
 
 const seedProducts = [
   {
@@ -212,6 +214,15 @@ const seedProducts = [
 
 
 const SeedsPage = () => {
+  const { addToCart, cartItems } = useContext(CartContext);
+  const [addedItems, setAddedItems] = useState([]);
+
+  const cartList = (item, index) => {
+    addToCart(item);
+    setAddedItems(prev => [...prev, index]);
+  };
+
+  
   return (
     <div className="seeds-page">
       <Navbar/>
@@ -228,8 +239,21 @@ const SeedsPage = () => {
             <h4>{item.name}</h4>
             <p className="desc">{item.description}</p>
             <p className="price"><i>{item.price}</i> <span> / {item.unit}</span></p>
-            <Link to="/OrderDone" state={{product:item}} className="buy-btn">Buy now</Link>
-          </div>
+            <div style={{ display: 'flex', marginTop: '20px',marginLeft:'10px', width: '180px', justifyContent: 'center' }}>
+                {addedItems.includes(i) && (
+                  <img
+                    src="/images/checkmark.gif"
+                    alt="Done"
+                    style={{ height: '25px', marginTop: '15px',width:'20%'}}
+                  />
+                )}
+                <button onClick={() => cartList(item, i)} className="buy-btn" 
+                disabled={addedItems.includes(i)} style={addedItems.includes(i)? {backgroundColor:'green',color:'white'}:{}}> 
+                {addedItems.includes(i) ? 'Added' : 'Add To Cart'}
+                </button>
+              </div>
+
+           </div>
         ))}
       </div>
 

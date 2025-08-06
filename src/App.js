@@ -26,6 +26,7 @@ import Login from './Components/Login';
 import Sign from './Components/Sign';
 import ForgetPassword from './Components/ForgetPassword';
 import HelpPage from './Components/HelpPage'
+import ProductDetails from './Components/ProductDetails';
 // import logo from './logo.svg'; // not used, optional
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
         <Route path="/ForgetPassword" element={<ForgetPassword/>} />
         <Route path="/HelpPage"  element={<HelpPage/>}></Route>
         <Route path="/Blog"  element={<Blog/>}></Route>
+        <Route path="/ProductDetails"  element={<ProductDetails/>}></Route>
         {/* <Route path="/Login" element={</>} /> */}
       </Routes>
     </Router>
