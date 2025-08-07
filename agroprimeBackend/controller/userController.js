@@ -46,10 +46,10 @@ const loginUser = async (req, res) => {
 };
 
 const createOrder = async (req, res) => {
-  const { email, items, totalAmount } = req.body;
+  const { email, items,shippingInfo, totalAmount } = req.body;
 
   try {
-    const order = new Order({ email, items, totalAmount });
+    const order = new Order({ email, items,shippingInfo, totalAmount });
     await order.save();
     res.status(200).json({ message: "Order placed", order });
   } catch (err) {
