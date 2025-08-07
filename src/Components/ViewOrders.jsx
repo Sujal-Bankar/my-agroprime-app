@@ -36,6 +36,7 @@ const ViewOrder = () => {
   return (
     <>
       <Navbar />
+      
       <div className="order-container">
         <h2>Your Orders</h2>
         {loading ? (

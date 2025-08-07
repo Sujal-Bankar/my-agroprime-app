@@ -65,10 +65,26 @@ nav a {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 20px 0;
+  margin: 20px 0 0 20px;
   flex-wrap: wrap;
 }
-
+.count{
+  background-color: white;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  color: green;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 200px;
+  left: 450px;
+  cursor: pointer;
+}
 .c-btn{
   text-decoration: none;
   background-color: #a3d99c;
@@ -146,6 +162,7 @@ nav a {
   border-radius: 16px;
   cursor: pointer;
   font-weight: 500;
+  text-decoration: none;
 }
 
 /* .agro-footer {
