@@ -53,7 +53,7 @@ const ProductDetails = () => {
       }, 0)
     };
 
-    const response = await fetch('http://localhost:7000/api/order', {
+    const response = await fetch('https://my-agroprime-app.onrender.com/api/order', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order)

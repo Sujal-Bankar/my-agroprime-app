@@ -15,7 +15,7 @@ const ViewOrder = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:7000/api/order/${email}`);
+      const res = await fetch(`https://my-agroprime-app.onrender.com/api/order/${email}`);
       const data = await res.json();
       if (res.ok) {
         setOrders(data);
