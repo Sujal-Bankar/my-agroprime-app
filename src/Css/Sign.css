@@ -121,7 +121,7 @@ body,
   cursor: pointer;
 }
 
-.signup-box button {
+.signup-btn {
   width: 100%;
   padding: 13px 0;
   border-radius: 7px;

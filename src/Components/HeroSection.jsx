@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 const HeroSection = () => {
   const [hover,setHover]=useState(false);
   const styles = {
@@ -40,11 +40,15 @@ const HeroSection = () => {
       boxShadow:hover? '0 4px 8px black':'0 2px 4px black'
     }
   };
+  const navigate = useNavigate();
+const email = localStorage.getItem('email');
 
-  // const handleHover = (e, isHovering) => {
-  //   e.target.style.backgroundColor = isHovering ? 'rgb(39 103 41)' : 'rgb(39 103 41)';
-  // };
-
+  function handleLogout(){
+    localStorage.removeItem("email"); // If you're storing it too
+    alert("You have been logged out.");
+    navigate("/");
+    window.location.reload();
+  }
   return (
     <section style={styles.hero}>
       <video src="/images/plant123video.mp4" autoPlay
@@ -60,6 +64,11 @@ const HeroSection = () => {
           top:'0px',
           right:'0px'
           }}></video>
+          <img src="/images/profile-image.jpg" alt="profile" style={{height:'60px' ,position:'absolute',borderRadius:'50%',margin:'20px 0 0 1080px'}}/>
+          <h3 style={{ position: "absolute", color: "black" ,textShadow:'0 1px 1px white',fontSize:'20px', margin:'35px 0 0 1150px'}}>
+            {email? email : "Guest Login"}
+            </h3>
+          <h4 onClick={handleLogout} style={{ position: "absolute", color: "red" ,textShadow:'0 1px 1px white',fontSize:'20px',margin:'60px 0 0 1150px',cursor:'pointer'}}>{email?"Logout":""}</h4>
       <h2 style={styles.heading}>Empowering Agriculture, Nourishing Future</h2>
       <Link
         style={styles.button}

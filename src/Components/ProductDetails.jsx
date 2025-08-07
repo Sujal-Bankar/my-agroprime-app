@@ -35,6 +35,46 @@ const ProductDetails = () => {
         }, 0);
     };
 
+    const handleCheckout = async () => {
+  try {
+    const email = localStorage.getItem('email');  // ✅ Get logged-in user ID
+
+    if (!email) {
+      alert("Please login to place order");
+      return;
+    }
+
+    const order = {
+      email,
+      items: cartItems,
+      totalAmount: cartItems.reduce((sum, item) => {
+        const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
+        return sum + (price * item.quantity);
+      }, 0)
+    };
+
+    const response = await fetch('http://localhost:7000/api/order', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(order)
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Order Placed Successfully!");
+      // Optionally clear cart
+      // navigate to order done page or order history
+    } else {
+      alert("Failed to place order");
+    }
+
+  } catch (err) {
+    console.error("Checkout error:", err);
+  }
+};
+
+
     return (
         <>
             <Navbar />
@@ -87,7 +127,7 @@ const ProductDetails = () => {
                     <h2>₹{(calculateSubtotal() + 1200).toFixed(2)}</h2>
                 </div>
                 <div className="checkout-container">
-                    <Link to="/OrderDone" state={{ passedList: cartItems }} className="checkout-btn">Proceed to Checkout</Link>
+                    <Link to="/OrderDone" onClick={handleCheckout} state={{ passedList: cartItems }} className="checkout-btn">Proceed to Checkout</Link>
                     <p className="continue-text">or <Link to="/AgroProducts">Continue Shopping</Link></p>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PageIcon from './PageIcon'
 import HeroSection from './HeroSection'
 import IntroSection from './IntroSection'
@@ -7,11 +7,43 @@ import FAQSection from './FAQSection'
 import WhyChooseUs from './WhyChooseUs'
 import Footer from './Footer'
 import Navbar from './Navbar'
+import '../Css/Home.css'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+
+  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const email = localStorage.getItem('email');
+      if (!email) {
+        setShowPopup(true); // Show popup only if user is not logged in
+      }
+    }, 5000); // 5 seconds
+
+    return () => clearTimeout(timer); // Clear on unmount
+  }, []);
+
+  const handleLoginRedirect = () => {
+    setShowPopup(false);
+    navigate("/login"); // redirect to login page
+  };
+
+
   return (
     <>
     <Navbar variant="hero" />
+    {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <h2>Please Login</h2>
+            <p>Please Login to Enjoy our Services...</p>
+            <button onClick={handleLoginRedirect}>Login Now</button>
+          </div>
+        </div>
+      )}
       <PageIcon />
       <HeroSection />
       <IntroSection />

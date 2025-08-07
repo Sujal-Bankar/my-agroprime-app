@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import '../Css/navbar.css'
 
 const Navbar = ({ variant }) => {
   const isTransparent = variant === 'hero'; 
@@ -81,23 +81,15 @@ const Navbar = ({ variant }) => {
               Information
             </a>
 
-            <Link
-              to="/BlogPage"
-              style={styles.navLink}
+            <li className="dropdown">
+            <span className="dropbtn"><Link to="/ProductMain" style={styles.navLink}
               onMouseEnter={(e) => handleHover(e, true)}
-              onMouseLeave={(e) => handleHover(e, false)}
-            >
-              Blog
-            </Link>
-
-            <Link
-              to="/ProductMain"
-              style={styles.navLink}
-              onMouseEnter={(e) => handleHover(e, true)}
-              onMouseLeave={(e) => handleHover(e, false)}
-            >
-              Shop
-            </Link>
+              onMouseLeave={(e) => handleHover(e, false)}>Shop &#9662;</Link></span>
+            <div className="dropdown-content">
+            <Link to="/ProductDetails">View Cart</Link>
+            <Link to="/ViewOrders">View Orders</Link>
+            </div>
+            </li>
 
 
             <Link
