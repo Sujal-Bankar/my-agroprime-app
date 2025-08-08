@@ -11,7 +11,6 @@ const ProductDetails = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    email: '',
     phone: '',
     street: '',
     city: '',
@@ -26,8 +25,8 @@ const ProductDetails = () => {
   };
 
   const isFormValid = () => {
-    const { firstName, lastName, email, street, city, state, zip } = formData;
-    return firstName && lastName && email && street && city && state && zip;
+    const { firstName, lastName, street, city, state, zip } = formData;
+    return firstName && lastName && street && city && state && zip;
   };
 
   const increaseQty = (index) => {
@@ -52,7 +51,7 @@ const ProductDetails = () => {
   const calculateSubtotal = () => {
     return cartItems.reduce((sum, item) => {
       const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
-      return sum + (price * item.quantity);
+      return Math.round(sum + (price * item.quantity));
     }, 0);
   };
 
@@ -171,10 +170,6 @@ const ProductDetails = () => {
                   <label htmlFor="lastName">Last Name*</label>
                   <input type="text" id="lastName" name="lastName" required value={formData.lastName} onChange={handleChange} />
                 </div>
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email Address*</label>
-                <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="phone">Phone Number</label>

@@ -72,6 +72,7 @@ const OrderDone = () => {
               <div className="row" key={index}>
                 <span>{item?.name || "No Product Selected"}</span>
                 <span className="price">{item?.price || "₹0.00"}</span>
+                <span className="price">{item.quantity}</span>
               </div>
             ))}
             <div className="row">
@@ -87,9 +88,10 @@ const OrderDone = () => {
           <div className="shipping">
             <h3>Shipping to</h3>
             <p>
-              123 Farm Lane <br />
-              Agri Village, Maharashtra 441111 <br />
-              India
+              {latestOrder.shippingInfo.street}<br/>
+              {latestOrder.shippingInfo.city} <br/>
+              {latestOrder.shippingInfo.state}
+              {latestOrder.shippingInfo.zip}
             </p>
           </div>
 

@@ -59,6 +59,8 @@
 }
 
 .price {
+  position: relative;
+  bottom: 10px;
   font-weight: 600;
 }
 

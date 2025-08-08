@@ -39,12 +39,10 @@ function Login() {
   };
 
   return (
-    <>
-      {/* Navbar */}
-      <div>
-        <Navbar/>
-      </div>
-
+    <div className='login-main'>
+     
+     <Navbar/>
+      
       <div className="login-box-container">
         <div className="login-box">
           <h2>Welcome Back!</h2>
@@ -53,8 +51,8 @@ function Login() {
             <input type="email" placeholder="Email" name="email" onChange={handleChange} required />
             <input type="password" placeholder="Password" name="password" onChange={handleChange} required />
             <div className="options">
-              <label>
-                <input type="checkbox" /> Remember me
+              <label style={{width:'130px'}}>
+                <input type="checkbox" style={{width:'20px'}}/><p style={{position:'relative',top:'13px'}}>Remember me</p> 
               </label>
               <Link to="/ForgetPassword">Forgot your password?</Link>
             </div>
@@ -65,7 +63,7 @@ function Login() {
           </div>
         </div>
       </div>
-    </>
+      </div>
   );
 }
 

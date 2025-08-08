@@ -19,16 +19,16 @@ const Home = () => {
     const timer = setTimeout(() => {
       const email = localStorage.getItem('email');
       if (!email) {
-        setShowPopup(true); // Show popup only if user is not logged in
+        setShowPopup(true);
       }
-    }, 5000); // 5 seconds
+    }, 5000); 
 
-    return () => clearTimeout(timer); // Clear on unmount
+    return () => clearTimeout(timer); 
   }, []);
 
   const handleLoginRedirect = () => {
     setShowPopup(false);
-    navigate("/login"); // redirect to login page
+    navigate("/login"); 
   };
 
 

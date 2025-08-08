@@ -66,7 +66,7 @@ const Sign = () => {
             <input type="password" placeholder="Password" name="password" onChange={handleChange} required />
             <input type="password" placeholder="Confirm Password" name="confirmPassword" onChange={(e) => setConfirmPassword(e.target.value)} required />
             <label className="terms">
-              <input type="checkbox" required /> I agree to the Terms and Conditions
+              <input type="checkbox" style={{width:'30px'}} required /><p>I agree to the Terms and Conditions</p>
             </label>
             <button className="signup-btn" type="submit">Sign up</button>
           </form>

@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../Css/navbar.css'
 
 const Navbar = ({ variant }) => {
+  const location = useLocation();
+  const {addedItems} = location.state || [];
+
   const isTransparent = variant === 'hero'; 
 
    const styles = {
@@ -86,7 +89,6 @@ const Navbar = ({ variant }) => {
               onMouseEnter={(e) => handleHover(e, true)}
               onMouseLeave={(e) => handleHover(e, false)}>Shop &#9662;</Link></span>
             <div className="dropdown-content">
-            <Link to="/ProductDetails">View Cart</Link>
             <Link to="/ViewOrders">View Orders</Link>
             </div>
             </li>

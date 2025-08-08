@@ -83,7 +83,7 @@ const FAQSection = () => {
           alt="FAQ"
           style={styles.image}
         />
-        <div style={styles.callBox}>📞 Call us anytime: &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 930 920 5438</div>
+        <div style={styles.callBox}>📞 Call us anytime: &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9503678939</div>
       </div>
 
       {/* Right Side Content */}
