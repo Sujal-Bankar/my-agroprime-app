@@ -46,9 +46,9 @@ const loginUser = async (req, res) => {
 };
 
 const updateUser = async (req,res) =>{
-  const {email}=req.body;
+  const {email,password}=req.body;
    try{
-        const updateData = await User.findOneAndUpdate({email},req.body,{new:true});
+        const updateData = await User.findOneAndUpdate({email},{password},{new:true});
         if(updateData){
             return res.status(200).json({Message:"data updated successfully",updateData});
         }

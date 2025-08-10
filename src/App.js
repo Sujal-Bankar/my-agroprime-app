@@ -28,7 +28,7 @@ import ForgetPassword from './Components/ForgetPassword';
 import HelpPage from './Components/HelpPage'
 import ProductDetails from './Components/ProductDetails';
 import ViewOrder from './Components/ViewOrders';
-// import logo from './logo.svg'; // not used, optional
+import ResetPassword from './Components/ResetPassword';
 
 function App() {
   return (
@@ -54,8 +54,8 @@ function App() {
         <Route path="/Blog"  element={<Blog/>}></Route>
         <Route path="/ProductDetails"  element={<ProductDetails/>}></Route>
         <Route path="/ViewOrders"  element={<ViewOrder/>}></Route>
-        {/* <Route path="/Login" element={</>} /> */}
-      </Routes>
+        <Route path="/ResetPassword"  element={<ResetPassword/>}></Route>
+       </Routes>
     </Router>
   );
 }
