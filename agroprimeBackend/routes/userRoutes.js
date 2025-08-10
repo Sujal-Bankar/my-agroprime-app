@@ -6,6 +6,6 @@ routes.post('/signup',storeUser);
 routes.post('/login',loginUser);
 routes.post('/order',createOrder);
 routes.get('/order/:email',getUserOrders);
-routes.post('/resetpassword/:email',updateUser);
+routes.put('/resetpassword/:email',updateUser);
 
 module.exports = routes; 
