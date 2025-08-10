@@ -6,6 +6,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import farmer from './farmer.jpeg';
 import crop from './crop.jpeg'; 
 import Swal from 'sweetalert2';
+import Footer from './Footer';
 
 const ContactSection = () => {
 
@@ -95,10 +96,10 @@ const ContactSection = () => {
             <h1>Send us a message</h1>
 
             <form onSubmit={onsubmit}>
-
-              <input type="text" id="name" name="name" placeholder="Name" required /><br /><br />
-
              <div class="form-row">
+               <div class="form-group">
+                  <input type="text" id="name" name="name" placeholder="Name" required />
+                </div>
                 <div class="form-group">
                   <input type="email" id="email" name="email" placeholder="Email*" required />
                 </div>
@@ -113,35 +114,9 @@ const ContactSection = () => {
 
             </form>
           </div>
-
-         
-
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
-
-
-    <footer class="footer">
-        <p> 2025 AgroPrime</p>
-        {/* <div class="social-links">
-            <a href="">Facebook</a> |
-            <a href="">Instagram</a> |
-            <a href="">Youtube</a>
-        </div> */}
-    </footer>
-      
-
+    <Footer/>
     </>
   );
 };

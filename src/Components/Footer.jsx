@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../images/footer-logo.png'
 
 function Footer() {
   const footerStyle = {
@@ -25,7 +26,7 @@ function Footer() {
 
   const logoImageStyle = {
     width: 'auto',
-    height: '40px',
+    height: '50px'
   };
 
   const brandText = {
@@ -65,11 +66,10 @@ function Footer() {
       <div style={contentStyle}>
         <div style={logoContainer}>
           <img
-            src="/images/logo1.png"
+            src={logo}
             alt="Agroprime Logo"
             style={logoImageStyle}
           />
-          {/* <span style={brandText}>AGROPRIME</span> */}
         </div>
         <div style={socialLinksStyle}>
           <a href="#" style={linkStyle}>
@@ -82,6 +82,11 @@ function Footer() {
           </a>
           <span style={dividerStyle}>|</span>
           <a href="#" style={linkStyle}>
+             <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png?20200512141346"
+              alt="Facebook"
+              style={iconStyle}
+            />
             Instagram
           </a>
           <span style={dividerStyle}>|</span>

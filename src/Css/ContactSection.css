@@ -235,7 +235,7 @@ p {
     display: inline-block;
     justify-content: center;
     align-items: center;
-    height: 450px;
+    height: 480px;
     width: 450px;
     background-color: #FCFCFC;
     margin-top: -510px;
@@ -247,7 +247,6 @@ p {
   height: 350px;
   width: 350px;
   margin: 50px 50px 50px 50px ;
-  /* border: 2px solid #87CEEB; */
   
 }
 .header p {
@@ -256,16 +255,11 @@ p {
 
 }
 
-.header h1 {
-margin-top: -20px;
-}
-
-
 
 input,textarea{
   width: 100%;
   padding: 12px 14px;
-  background-color: #F8F8F8;
+  background-color: #eaeaea;
   border: none;
   font-size: 14px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -308,16 +302,21 @@ input,textarea:focus {
 
 
 .submit-button{
-
   background-color: #F7C35F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: black;
-  
   border: none;
-  width: 100px;
-  height: 30px;
+  width: 130px;
+  height: 35px;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 13px;
   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.submit-button:hover{
+  background-color: #a6761d;
+  color: white;
 }
 
 

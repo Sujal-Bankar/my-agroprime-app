@@ -38,7 +38,7 @@ function ProductMain() {
  ];
 
   return (
-    <>
+    <div style={{backgroundColor:'#b2e3ac64'}}>
       <Navbar/>
       <section className='video'>
         <video
@@ -82,7 +82,7 @@ function ProductMain() {
             </div>
            </div> 
            <Footer/>
-    </>
+    </div>
   );
 }
 
