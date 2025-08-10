@@ -13,15 +13,15 @@ const ForgetPassword = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_qs7mio8', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
+      .sendForm('service_qs7mio8', 'template_39syj2i', form.current, {
+        publicKey: 'vmcycTAvSZnLFkE9d',
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          alert('Email Sent Succesfully');
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          alert(error.message);
         },
       );
   };
@@ -36,8 +36,8 @@ const ForgetPassword = () => {
             Enter your email address below and we'll send you instructions to
             reset your password.
           </p>
-          <form onSubmit={sendEmail}>
-            <input type="email" placeholder="Email address" required />
+          <form ref={form} onSubmit={sendEmail}>
+            <input type="email" name="email" placeholder="Email address" required />
             <button type="submit">Send Reset Link</button>
           </form>
           <div className="login-link">
