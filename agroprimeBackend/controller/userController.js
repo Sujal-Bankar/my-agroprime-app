@@ -45,6 +45,20 @@ const loginUser = async (req, res) => {
   }
 };
 
+const updateUser = async (req,res) =>{
+  const {email}=req.body;
+   try{
+        const updateData = await User.findOneAndUpdate({email},req.body,{new:true});
+        if(updateData){
+            return res.status(200).json({Message:"data updated successfully",updateData});
+        }
+        return res.status(400).json({Message:"data not updated"});
+    }
+    catch(error){
+        return res.status(500).json({Message:error.message});
+    }
+}
+
 const createOrder = async (req, res) => {
   const { email, items,shippingInfo, totalAmount } = req.body;
 
@@ -68,4 +82,4 @@ const getUserOrders = async (req, res) => {
   }
 };
 
-module.exports={storeUser,loginUser,createOrder,getUserOrders}
+module.exports={storeUser,loginUser,createOrder,getUserOrders,updateUser}
