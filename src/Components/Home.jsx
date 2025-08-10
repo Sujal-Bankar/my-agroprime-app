@@ -36,7 +36,7 @@ const Home = () => {
     <>
     <Navbar variant="hero" />
     {showPopup && (
-        <div className="popup-overlay">
+        <div className="popup-main">
           <div className="popup-box">
             <h2>Please Login</h2>
             <p>Please Login to Enjoy our Services...</p>

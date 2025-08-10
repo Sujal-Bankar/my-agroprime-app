@@ -44,8 +44,7 @@ const ForgetPassword = () => {
             Remembered your password? <Link to="/Login">Sign in</Link>
           </div>
         </div>
-      </div>
-      <Footer/>     
+      </div>    
     </div>
   );
 };

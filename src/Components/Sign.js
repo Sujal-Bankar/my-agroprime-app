@@ -75,9 +75,6 @@ const Sign = () => {
           </div>
         </div>
       </div>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 };
