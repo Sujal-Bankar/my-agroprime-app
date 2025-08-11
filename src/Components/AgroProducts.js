@@ -40,7 +40,7 @@ const AgroProducts = () => {
     return;
   }
 
-  if (!addedItems.length) {
+  if (!cartItems.length) {
     alert("Your cart is empty");
     return;
   }
@@ -65,7 +65,7 @@ const AgroProducts = () => {
           <Link className='c-btn' to="/Equipments">Equipments</Link>
         </div>
       <img src="/images/cart.jpg" style={{cursor:'pointer',height:'70px',borderRadius:'50%',position:'absolute',bottom:'460px',left:'400px'}} onClick={handleclick}/>
-      <div className='count'>{addedItems.length}</div>
+      <div className='count'>{cartItems.length}</div>
         <div className="product-cards">
           {products.map((item, i) => (
             <div className="product-card" key={i}>
