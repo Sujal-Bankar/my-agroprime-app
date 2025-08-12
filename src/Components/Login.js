@@ -29,7 +29,7 @@ function Login() {
       if (response.ok) {
         alert(data.message);
         localStorage.setItem('email', data.user.email);
-        navigate("/"); // Or redirect to dashboard/home
+        navigate("/"); 
       } else {
         alert(data.message || "Login failed");
       }

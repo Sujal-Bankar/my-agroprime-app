@@ -33,7 +33,7 @@ const Home = () => {
 
 
   return (
-    <>
+    <div className='home-main'>
     <Navbar variant="hero" />
     {showPopup && (
         <div className="popup-main">
@@ -51,7 +51,7 @@ const Home = () => {
       <FAQSection />
       <WhyChooseUs />
       <Footer />
-    </>
+    </div>
   )
 }
 

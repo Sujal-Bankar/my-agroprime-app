@@ -1,4 +1,8 @@
-
+@media (max-width:600px){
+  .home-main{
+    width: 260%;
+  }
+}
 .popup-main{
   position: fixed;
   top: 0;

@@ -7,34 +7,6 @@
   color: white;
   padding: 40px 60px;
 }
-@media (max-width:600px){
-  .hero {
-    position: relative;
-    top: 100px;
-    width: 100%;
-  }
-  .hero-video{
-    position: relative;
-    top: 4.4vh !important;
-    width: 100% !important;
-    height: 40% !important;
-  }
-  .profile-img{
-    transform: scale(0.4);
-    top: 10px;
-    left: 10px;
-  }
-  .email-text{
-    transform: scale(0.4);
-    top: 10px;
-    right: 260px;
-  }
-  .logout-text{
-    transform: scale(0.4);
-    top: 0px;
-    right: 405px;
-  }
-}
 
 .hero-video {
   position: absolute;
