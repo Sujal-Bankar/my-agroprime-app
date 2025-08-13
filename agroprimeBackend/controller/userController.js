@@ -86,7 +86,7 @@ const getUserForAdmin = async(req,res)=>{
   const user = await User.find();
   try {
     if(user){
-      return res.status(200).json("Done",user);
+      return res.status(200).json(user);
     }
     return res.status(400).json("Not Done");
   } catch (error) {
