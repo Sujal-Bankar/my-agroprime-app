@@ -185,6 +185,9 @@
         margin-left: 0;
         width: 70%;
     }
+    .line{
+      margin: -50px 1040px 50px 0;
+    }
 
     #search {
         margin-left: 0;
@@ -295,7 +298,9 @@
     #heading h1 {
         font-size: 18px;
     }
-
+    .line{
+      margin: -40px 940px 50px 0;
+    }
     .rain-sub p {
         font-size: 14px;
     }
