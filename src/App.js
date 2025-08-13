@@ -30,6 +30,7 @@ import ProductDetails from './Components/ProductDetails';
 import ViewOrder from './Components/ViewOrders';
 import ResetPassword from './Components/ResetPassword';
 import UsersData from './Components/UsersData';
+import OrderData from './Components/OrderData';
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
         <Route path="/ViewOrders"  element={<ViewOrder/>}></Route>
         <Route path="/ResetPassword"  element={<ResetPassword/>}></Route>
         <Route path="/UsersData"  element={<UsersData/>}></Route>
+        <Route path="/OrderData"  element={<OrderData/>}></Route>
        </Routes>
     </Router>
   );

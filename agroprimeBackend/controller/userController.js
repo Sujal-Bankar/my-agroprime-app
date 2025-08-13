@@ -98,7 +98,7 @@ const getOrderForAdmin = async (req,res) =>{
   const order = await Order.find();
   try {
     if(order){
-      return res.status(200).json("Done",order);
+      return res.status(200).json(order);
       }
       return res.status(400).json("Not Done");
   } catch (error) {

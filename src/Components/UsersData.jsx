@@ -19,8 +19,10 @@ const UsersData = () => {
         <button onClick={getUsers}>Get Users</button>
         <ul>
             {
-                users
-          }
+                users.map((user, index) => {
+                return <li key={index}>{user.name}</li>;
+                })
+            }
         </ul>
 
     </div>
