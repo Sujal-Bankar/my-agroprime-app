@@ -224,8 +224,7 @@ const Weather = () => {
           <Link to="/WeatherInfo" state={{ weatherData, query,forecast }} className="btn btn-outline-success" id="more">
             Know More
           </Link>
-        </div>
-
+          </div>
         <div className="rain-sub">
           <p><strong>Advice for Farmers:</strong><br />
             {weatherData? getFarmerAdvice(weatherData) :"Delay irrigation, spraying, or harvesting today. Secure your crop produce and seed beds."}
