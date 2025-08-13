@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../images/logo.jpeg';
 import '../Css/UsersData.css';
+import { useNavigate } from 'react-router-dom';
 
 const UsersData = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [users, setUsers] = useState([]);
+    const navigate = useNavigate();
 
   const getUsers = async () => {
     const response = await fetch('https://my-agroprime-app.onrender.com/api/getAllUsers');
@@ -40,12 +42,14 @@ const UsersData = () => {
     setShowPopup(false);
     setSelectedUser(null);
   }
-
+  function getNavigate(){
+      navigate('/AdminMain')
+    }
   return (
     <div>
       <nav className="Navbar">
         <img src={logo} alt="" className="logo" />
-        <h1 className="nav-title">Admin Dashboard</h1>
+        <div onClick={getNavigate}><h1 className="nav-title">Admin Dashboard</h1></div>
       </nav>
 
       <div className="userList-main">

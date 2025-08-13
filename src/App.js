@@ -31,6 +31,8 @@ import ViewOrder from './Components/ViewOrders';
 import ResetPassword from './Components/ResetPassword';
 import UsersData from './Components/UsersData';
 import OrderData from './Components/OrderData';
+import AdminMain from './Components/AdminMain';
+import AdminLogin from './Components/AdminLogin';
 
 function App() {
   return (
@@ -57,6 +59,8 @@ function App() {
         <Route path="/ProductDetails"  element={<ProductDetails/>}></Route>
         <Route path="/ViewOrders"  element={<ViewOrder/>}></Route>
         <Route path="/ResetPassword"  element={<ResetPassword/>}></Route>
+        <Route path="/Admin"  element={<AdminLogin/>}></Route>
+        <Route path="/AdminMain"  element={<AdminMain/>}></Route>
         <Route path="/UsersData"  element={<UsersData/>}></Route>
         <Route path="/OrderData"  element={<OrderData/>}></Route>
        </Routes>

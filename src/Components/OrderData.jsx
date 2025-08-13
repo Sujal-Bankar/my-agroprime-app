@@ -19,13 +19,14 @@ const AdminOrders = () => {
         console.error(err);
       }
     };
-
+    useEffect(()=>{
     fetchOrders();
+    })
 
     const deliveryDone = async(email)=>{
       try {
         const response = await fetch(`https://my-agroprime-app.onrender.com/api/deleteProduct/${email}`);
-        const data = await res.json();
+        const data = await response.json();
         if(response.ok){
           alert('Delivery Data Updated')
         }
@@ -33,12 +34,14 @@ const AdminOrders = () => {
         console.error(error.message);
       }
     }
-
+    function getNavigate(){
+      navigate('/AdminMain')
+    }
   return (
     <>
      <nav className="Navbar">
         <img src={logo} alt="" className="logo" />
-        <h1 className="nav-title">Admin Dashboard</h1>
+        <div onClick={getNavigate}><h1 className="nav-title">Admin Dashboard</h1></div>
       </nav>
       <div className="userList-main">
         <h1 className="page-title">Admin - All Orders</h1>
@@ -47,7 +50,7 @@ const AdminOrders = () => {
           orders.map((order) => (
             <div key={order._id} className="userdata-card">
               <h2>Order ID: {order._id}</h2>
-              <button onClick={deliveryDone}>Confirm Delivery</button>
+              <button onClick={deliveryDone(order.email)}>Confirm Delivery</button>
               <p><strong>Customer:</strong> {order.shippingInfo.firstName} {order.shippingInfo.lastName}</p>
               <p><strong>Email:</strong> {order.email}</p>
               <p><strong>Phone:</strong> {order.shippingInfo.phone}</p>
@@ -68,7 +71,6 @@ const AdminOrders = () => {
           <p>No orders found.</p>
         )}
       </div>
-      <Footer />
     </>
   );
 };
