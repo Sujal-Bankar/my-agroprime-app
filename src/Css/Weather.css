@@ -299,9 +299,15 @@
         font-size: 18px;
     }
     #line{
-      margin: -40px 1000px 0 70px; 
+      display: none;
     }
     .rain-sub p {
         font-size: 14px;
+    }
+    .list-group{
+     width: 50%;
+     position: absolute;
+     top: 270px;
+     margin-left: -50px; 
     }
 }
