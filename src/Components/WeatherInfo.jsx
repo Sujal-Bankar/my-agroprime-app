@@ -70,11 +70,12 @@ const forecastData = [
       </div>
     <div className='heading2'>
     <Link to="/Weather">
-    <img src="/images/back.png" alt="" id='back'/></Link>
+    <img src="/images/back.png" alt="" id='back' className='back'/>
+    </Link>
     <h1>Now In {weatherData? weatherData.name :"Akurdi"}</h1>
     </div>
     <div className='alert-msg'>
-      <p><b>⚠️ Disclaimer: </b>The weather forecast data displayed on this website is provided for informational purposes only. While we strive to offer accurate and timely updates, there may be delays or discrepancies due to third-party data sources or unexpected weather fluctuations. Users are advised not to rely solely on this information for critical decisions.</p>
+      <marquee><b>⚠️ Disclaimer: </b>The weather forecast data displayed on this website is provided for informational purposes only. While we strive to offer accurate and timely updates, there may be delays or discrepancies due to third-party data sources or unexpected weather fluctuations. Users are advised not to rely solely on this information for critical decisions.</marquee>
     </div>
 
     <div className='map-card'>
@@ -210,7 +211,9 @@ const forecastData = [
   </div>
 </div>
 </div>
+<div className='footer-main'>
       <Footer/>
+      </div>
     </div>
   )
 }

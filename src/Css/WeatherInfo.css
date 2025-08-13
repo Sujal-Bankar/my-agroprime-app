@@ -30,6 +30,7 @@ html{
 }
 .alert-msg{
       position: absolute;
+      overflow: hidden;
       margin-top: 20px;
       left: 170px;
       height: 35px;
@@ -37,18 +38,8 @@ html{
       background-color: rgb(255, 238, 208);
       border-left: 8px solid rgb(231, 141, 62);
 }
-.alert-msg p{
-    animation: moving 15s linear infinite;
-      margin-top: 5px;
-      margin-left: 1%;
-}
-@keyframes moving {
-    0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.alert-msg marquee{
+  margin-top: 5px;
 }
 #earth{
       height: 30px;
@@ -301,4 +292,144 @@ html{
 }
 .sec2{
   height: 200px;
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  .heading2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .heading2 h1 {
+    left: 0;
+    margin-top: 10px;
+  }
+
+  #back {
+    left: 0;
+    margin-bottom: 10px;
+  }
+
+  .alert-msg {
+    left: 0;
+    width: 90%;
+    margin: 20px auto;
+    position: relative;
+  }
+
+  .map-card {
+    left: 0;
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .map-item {
+    left: 0;
+    width: 90%;
+    justify-content: center;
+  }
+
+  .weather-card,
+  .soil-card,
+  .forecast-card,
+  .farming-card {
+    left: 0;
+    margin: 20px auto;
+    width: 90%;
+    position: relative;
+    bottom: 0;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .heading2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  .heading2 h1 {
+    font-size: 22px;
+    left: 0;
+    margin: 0;
+  }
+
+  #back {
+    left: 0;
+    margin-bottom: 15px;
+  }
+
+  .alert-msg {
+    left: 0;
+    width: 95%;
+    font-size: 14px;
+  }
+
+  .map-card {
+    width: 95%;
+    padding: 20px;
+    left: 0;
+  }
+
+  .map-item {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .weather-card,
+  .soil-card,
+  .forecast-card,
+  .farming-card {
+    width: 95%;
+    left: 0;
+    bottom: 0;
+    margin: 15px auto;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .mainn{
+    margin-top: 100px;
+  }.heading2{
+    display: flex;
+    flex-direction: row;
+  }
+  .back{
+    transform: scale(0.5);
+    margin-top: 10px;
+    margin-right: 20px;
+  }
+  .heading2 h1 {
+    font-size: 18px;
+  }
+
+  .alert-msg {
+    font-size: 12px;
+  }
+
+  .map-item {
+    font-size: 12px;
+  }
+
+  .weather-card,
+  .forecast-card,
+  .farming-card {
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .soil-card{
+    margin-top: 80px;
+  }
+  .footer-main{
+    margin-top: 550px;
+  }
+  .map{
+    height: 350px;
+  }
 }
