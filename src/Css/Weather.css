@@ -19,7 +19,8 @@
     font-size: 25px;
 }
 #line{
-    margin: -45px 0px 0px 168px;
+  position: absolute;
+  margin: -45px 0px 0px 168px;
 }
 #heading input{
     width: 74vh;
@@ -132,88 +133,145 @@ font-weight: 700;
 .rain-sub p{
     font-size: 30px;
 }
-@media (max-width: 1024px) {
-  #heading input {
-    width: 50vw;
-    margin-left: 150px;
-    top: 10px;
-  }
-
-  .list-group {
-    top: 140px;
-    right: 100px;
-    width: 90vw;
-    max-height: 150px;
-  }
-
-  #more {
-    right: 50px;
-    width: 15vw;
-    height: 5vh;
-    top: 180px;
-  }
-
-  #map-pin {
+@media (max-width:600px){
+    .mainn{
+      height: 300vh;
+      width: 320vw ;
+    }
+    #sun-cloud-image{
     margin-left: 40px;
-    height: 25px;
-    width: 25px;
-  }
-
-  .rain-ani {
-    left: 90vw;
-  }
-
-  #rainboy {
-    width: 40vw;
-    height: 40vh;
-  }
+    margin-top: 20px;
+    height: 40px;
+    width: auto;
 }
 
-@media (max-width: 600px) {
-  #heading {
-    flex-direction: column;
-    padding-left: 20px;
-  }
+#heading{
+    padding:30px 0 0 40px ;
+    width: 370vw;
+    display: flex;
+}
+#heading h1{
+    margin: 30px 0px 0px 20px;
+    font-size: 20px;
+}
+#line{
+  position: absolute;
+  margin: -30px 0px 0px 160px;
+  font-size: 1.8rem;
+}
+#heading input{
+    width: 30vh;
+    position: relative;
+    top: 30px;
+    margin: 0 0 0 250px;
+    font-weight: 700;
+}
+#search-in{
+    background-color: aliceblue;
+    border: 1px solid #2e7d32; 
+}
+#search-in::placeholder{
+       color:#2e7d32;
+}
+.list-group{
+    position: absolute;
+    top: 200px;
+    left: 590px;
+    height: 330px;
+    width: 200px;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 999;
+  opacity: 1;
+}
+.list-group-item{
+    background-color: aliceblue !important;
+    font-weight: 900;
+    font-family: 'Segoe UI', sans-serif;
+}
+#search{
+    position: relative;
+    width: 30vw;
+    height: 5vh;    
+    top: 29px;
+    left: 10px;
+    font-weight:700;
+    background-color: aliceblue;
+}
+#search:hover{
+    background-color: #2e7d32;
+}
+#loc{
+    display: flex;
+    padding: 5px 0 0 35px;
+}
+#current-loc{
+    color: rgba(75, 75, 75, 0.786);
+    margin: 2px 0 0 5px;
+    font-size: 20px;
+}
+#map-pin{
+    margin-left: 120px;
+    height: 30px;
+    width: 30px;border-radius: 50%;
+}
+.rain-ani{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 10vh;
+    left: 20vw !important;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 
-  #heading input {
-    width: 90vw;
-    margin: 10px 0 0 0;
-    top: 0;
-  }
+}
+.rain-ani h2{
+    font-size: 30px;
+    padding: 100px 0 0 0 ;
+}
+.rain-ani p{
+    font-size: 30px;
+    margin-right: 70px;
+    position: absolute;
+    left: 230px;
+}
+#rainboy{
+    height: 50vh;
+    width: auto;
+    position: relative;
+    }
+@keyframes slide {
+    from{
+        left: 160vw;
+    }
+    to{
+        left: 5vw;
+    }
+}
+#more{
+    position: absolute;
+    padding-top: 8px;
+    font-weight: 700;
+    background-color: aliceblue;
+    height: 6vh;
+    width: auto;
+    top: 247px;
+    right: 740px;
+}
+#more:hover{
+    background-color: #2e7d32 ;
+}
+.rain-sub{
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.rain-sub p{
+    font-size: 30px;
+}
 
-  .list-group {
-    position: static;
-    width: 100%;
-    max-height: 120px;
-    top: auto;
-    right: auto;
-    border-radius: 0;
-  }
-
-  #more {
-    position: static;
-    margin: 10px 0;
-    width: 90vw;
-    height: 40px;
-    top: auto;
-    right: auto;
-  }
-
-  #map-pin {
-    margin-left: 10px;
-    height: 20px;
-    width: 20px;
-  }
-
-  .rain-ani {
-    animation-name: none;
-    left: 0;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #rainboy {
-    width: 90vw;
-    height: 30vh;
-  }
 }

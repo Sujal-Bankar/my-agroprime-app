@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import logo from '../images/logo.jpeg'
+import '../Css/UsersData.css'
 
 const UsersData = () => {
 
@@ -16,15 +18,12 @@ const UsersData = () => {
 
   return (
     <div>
-        <button onClick={getUsers}>Get Users</button>
-        <ul>
-            {
-                users.map((user, index) => {
-                return <li key={index}>{user.name}</li>;
-                })
-            }
-        </ul>
+        <nav className='Navbar'>
+            <img src={logo} alt="" className='logo'/>
+            <h1 className='nav-title'>Admin Dashboard</h1>
+        </nav>
 
+        
     </div>
   )
 }

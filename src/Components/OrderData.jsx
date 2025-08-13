@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const OrderData = () => {
 
@@ -14,7 +15,7 @@ const OrderData = () => {
     <div>
         <button onClick={getOrderData}>Get Order Data</button>
         <ul>
-            
+
         </ul>
                     
     </div>
