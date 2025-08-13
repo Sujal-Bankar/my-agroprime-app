@@ -79,3 +79,19 @@
 .view-user:hover {
     color: #006400;
 }
+.userdata-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.userdata-products {
+  margin: 10px 0;
+}
+
+.userdata-product-item {
+  padding-left: 10px;
+  color: #555;
+}

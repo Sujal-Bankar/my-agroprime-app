@@ -1,25 +1,76 @@
-import React, { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import "../Css/UsersData.css"; 
+import logo from '../images/logo.jpeg';
+import { useNavigate } from "react-router-dom";
 
-const OrderData = () => {
+const AdminOrders = () => {
+  const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
 
-    const [orderData, setOrderData] = React.useState([]);
-    const getOrderData = async (req,res)=>{
-        const response = await fetch('https://my-agroprime-app.onrender.com/api/getAllOrders');
-        const data = await response.json();
+  
+    const fetchOrders = async () => {
+      try {
+        const res = await fetch("https://my-agroprime-app.onrender.com/api/getAllOrders");
+        const data = await res.json();
+        setOrders(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchOrders();
+
+    const deliveryDone = async(email)=>{
+      try {
+        const response = await fetch(`https://my-agroprime-app.onrender.com/api/deleteProduct/${email}`);
+        const data = await res.json();
         if(response.ok){
-            setOrderData(data);
+          alert('Delivery Data Updated')
         }
+      } catch (error) {
+        console.error(error.message);
+      }
     }
+
   return (
-    <div>
-        <button onClick={getOrderData}>Get Order Data</button>
-        <ul>
+    <>
+     <nav className="Navbar">
+        <img src={logo} alt="" className="logo" />
+        <h1 className="nav-title">Admin Dashboard</h1>
+      </nav>
+      <div className="userList-main">
+        <h1 className="page-title">Admin - All Orders</h1>
 
-        </ul>
-                    
-    </div>
-  )
-}
+        {orders.length > 0 ? (
+          orders.map((order) => (
+            <div key={order._id} className="userdata-card">
+              <h2>Order ID: {order._id}</h2>
+              <button onClick={deliveryDone}>Confirm Delivery</button>
+              <p><strong>Customer:</strong> {order.shippingInfo.firstName} {order.shippingInfo.lastName}</p>
+              <p><strong>Email:</strong> {order.email}</p>
+              <p><strong>Phone:</strong> {order.shippingInfo.phone}</p>
+              <p><strong>Address:</strong> {order.shippingInfo.street} {order.shippingInfo.city} {order.shippingInfo.state}</p>
+              <div className="userdata-products">
+                <strong>Products:</strong>
+                {order.items.map((item) => (
+                  <div key={item._id} className="userdata-product-item">
+                    {item.name} (x{item.quantity})
+                  </div>
+                ))}
+              </div>
+              <p><strong>Total:</strong> ₹ {order.totalAmount}/-</p>
+              <p><strong>Date:</strong> {new Date(order.createdAt).toLocaleString()}</p>
+            </div>
+          ))
+        ) : (
+          <p>No orders found.</p>
+        )}
+      </div>
+      <Footer />
+    </>
+  );
+};
 
-export default OrderData
+export default AdminOrders;

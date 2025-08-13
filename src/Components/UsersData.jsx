@@ -68,7 +68,7 @@ const UsersData = () => {
             <p><strong>Name:</strong> {selectedUser.name}</p>
             <p><strong>Phone:</strong> {selectedUser.phoneno}</p>
             <p><strong>Email:</strong> {selectedUser.email}</p>
-            <p><strong>Address:</strong> {selectedUser.address}</p>
+            <p><strong>Address:</strong> {selectedUser.createdAt}</p>
             <button onClick={closePopup}>Close</button>
           </div>
         </div>
