@@ -82,33 +82,39 @@ const Navbar = ({ variant }) => {
       {/* Nav links */}
       <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
         <Link to="/" style={styles.navLink}
+        onClick={() => setMenuOpen(false)}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>Home</Link>
 
         <Link to="/AboutUs" style={styles.navLink}
+        onClick={() => setMenuOpen(false)}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>About</Link>
 
         <a style={styles.navLink}
+        onClick={() => setMenuOpen(false)}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>Information</a>
 
         <li className="dropdown">
           <span className="dropbtn">
             <Link to="/ProductMain" style={styles.navLink}
+            onClick={() => setMenuOpen(false)}
               onMouseEnter={(e) => handleHover(e, true)}
               onMouseLeave={(e) => handleHover(e, false)}>Shop &#9662;</Link>
           </span>
           <div className="dropdown-content">
-            <Link to="/ViewOrders">View Orders</Link>
+            <Link to="/ViewOrders" onClick={() => setMenuOpen(false)}>View Orders</Link>
           </div>
         </li>
 
         <Link to="/ContactSection" style={styles.navLink}
+        onClick={() => setMenuOpen(false)}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>Contact</Link>
 
         <Link to="/Login" style={styles.navLink}
+        onClick={() => setMenuOpen(false)}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>Login</Link>
       </div>
