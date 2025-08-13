@@ -1,38 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../Css/navbar.css'
+import '../Css/navbar.css';
 
 const Navbar = ({ variant }) => {
   const location = useLocation();
-  const {addedItems} = location.state || [];
+  const { addedItems } = location.state || [];
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const isTransparent = variant === 'hero'; 
+  const isTransparent = variant === 'hero';
 
-   const styles = {
+  const styles = {
     navbar: {
-      position:'fixed' ,
-      top: isTransparent ? '0' : '0',
-      right:'',
+      position: 'fixed',
+      top: '0',
       width: '100%',
-      backgroundColor:'#ffff',
+      backgroundColor: '#ffff',
       color: 'black',
       padding: '15px 30px',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       zIndex: 10,
-      boxShadow:'0 2px 10px rgba(0.20, 0.20, 0.20, 0.20)',
+      boxShadow: '0 2px 10px rgba(0.20, 0.20, 0.20, 0.20)',
     },
     logo: {
       fontSize: '24px',
       fontWeight: 'bold',
-      marginLeft: '60px',
+      marginLeft: '10px',
     },
     navLinks: {
       listStyle: 'none',
-      display: 'flex',
-      gap: '40px',
-      marginRight: '80px',
+      display: menuOpen ? 'flex' : '',
+      flexDirection: 'column',
+      gap: '20px',
+      margin: 0,
       padding: 0,
     },
     navLink: {
@@ -42,76 +43,75 @@ const Navbar = ({ variant }) => {
       fontWeight: '600',
       transition: 'color 0.3s ease'
     },
-  };
-  const handleHover = (e, isHovering) => {
-    e.target.style.color = isHovering ? '#2e7d32' : 'black'; // green on hover
+    hamburger: {
+      display: 'none',
+      flexDirection: 'column',
+      cursor: 'pointer',
+    },
+    bar: {
+      height: '3px',
+      width: '25px',
+      backgroundColor: 'black',
+      margin: '4px 0',
+      transition: '0.3s',
+    }
   };
 
-  const menuItems = ['Home', 'About', 'Information', 'Blog', 'Shop', 'Contact', 'Login'];
+  const handleHover = (e, isHovering) => {
+    e.target.style.color = isHovering ? '#2e7d32' : 'black';
+  };
 
   return (
     <nav style={styles.navbar}>
       <img
         src="/images/logo1.png"
         alt="AgroPrime Logo"
-        style={{height: '70px', width: 'auto' }}
+        className='nav-logo'
       />
-      <div style={styles.navLinks}>
-            <Link
-              to="/"
-              style={styles.navLink}
-              onMouseEnter={(e) => handleHover(e, true)}
-              onMouseLeave={(e) => handleHover(e, false)}
-            >
-              Home
-            </Link>
 
-            <Link
-              to="/AboutUs"
-              style={styles.navLink}
-              onMouseEnter={(e) => handleHover(e, true)}
-              onMouseLeave={(e) => handleHover(e, false)}
-            >
-              About
-            </Link>
+      {/* Hamburger button (mobile only) */}
+      <div
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <div style={styles.bar}></div>
+        <div style={styles.bar}></div>
+        <div style={styles.bar}></div>
+      </div>
 
-            <a
-              to="/Information"
-              style={styles.navLink}
-              onMouseEnter={(e) => handleHover(e, true)}
-              onMouseLeave={(e) => handleHover(e, false)}
-            >
-              Information
-            </a>
+      {/* Nav links */}
+      <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <Link to="/" style={styles.navLink}
+          onMouseEnter={(e) => handleHover(e, true)}
+          onMouseLeave={(e) => handleHover(e, false)}>Home</Link>
 
-            <li className="dropdown">
-            <span className="dropbtn"><Link to="/ProductMain" style={styles.navLink}
+        <Link to="/AboutUs" style={styles.navLink}
+          onMouseEnter={(e) => handleHover(e, true)}
+          onMouseLeave={(e) => handleHover(e, false)}>About</Link>
+
+        <a style={styles.navLink}
+          onMouseEnter={(e) => handleHover(e, true)}
+          onMouseLeave={(e) => handleHover(e, false)}>Information</a>
+
+        <li className="dropdown">
+          <span className="dropbtn">
+            <Link to="/ProductMain" style={styles.navLink}
               onMouseEnter={(e) => handleHover(e, true)}
-              onMouseLeave={(e) => handleHover(e, false)}>Shop &#9662;</Link></span>
-            <div className="dropdown-content">
+              onMouseLeave={(e) => handleHover(e, false)}>Shop &#9662;</Link>
+          </span>
+          <div className="dropdown-content">
             <Link to="/ViewOrders">View Orders</Link>
-            </div>
-            </li>
+          </div>
+        </li>
 
+        <Link to="/ContactSection" style={styles.navLink}
+          onMouseEnter={(e) => handleHover(e, true)}
+          onMouseLeave={(e) => handleHover(e, false)}>Contact</Link>
 
-            <Link
-              to="/ContactSection"
-              style={styles.navLink}
-              onMouseEnter={(e) => handleHover(e, true)}
-              onMouseLeave={(e) => handleHover(e, false)}
-            >
-              Contact
-            </Link>
-
-            <Link
-              to="/Login"
-              style={styles.navLink}
-              onMouseEnter={(e) => handleHover(e, true)}
-              onMouseLeave={(e) => handleHover(e, false)}
-            >
-              Login
-            </Link>
-          </div>  
+        <Link to="/Login" style={styles.navLink}
+          onMouseEnter={(e) => handleHover(e, true)}
+          onMouseLeave={(e) => handleHover(e, false)}>Login</Link>
+      </div>
     </nav>
   );
 };

@@ -30,3 +30,50 @@
 .dropdown:hover .dropdown-content {
   display: flex;
 }
+.hamburger {
+  display: none;
+}
+.nav-logo{
+   height: 70px;
+    width:auto;
+}
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a,
+  .nav-links .dropdown {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .dropdown-content {
+    position: relative;
+    box-shadow: none;
+  }
+  .nav-logo{
+    height: 40px;
+    width: none;
+  }
+}
