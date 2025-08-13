@@ -16,7 +16,13 @@ const UsersData = () => {
 
   return (
     <div>
-      console.log(data);      
+        <button onClick={getUsers}>Get Users</button>
+        <ul>
+            {
+                users
+          }
+        </ul>
+
     </div>
   )
 }

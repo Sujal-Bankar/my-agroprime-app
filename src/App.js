@@ -29,6 +29,7 @@ import HelpPage from './Components/HelpPage'
 import ProductDetails from './Components/ProductDetails';
 import ViewOrder from './Components/ViewOrders';
 import ResetPassword from './Components/ResetPassword';
+import UsersData from './Components/UsersData';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path="/ProductDetails"  element={<ProductDetails/>}></Route>
         <Route path="/ViewOrders"  element={<ViewOrder/>}></Route>
         <Route path="/ResetPassword"  element={<ResetPassword/>}></Route>
+        <Route path="/UsersData"  element={<UsersData/>}></Route>
        </Routes>
     </Router>
   );
