@@ -28,14 +28,14 @@ const Navbar = ({ variant }) => {
       fontWeight: 'bold',
       marginLeft: '10px',
     },
-    navLinks: {
-      listStyle: 'none',
-      display: menuOpen ? 'flex' : '',
-      flexDirection: 'column',
-      gap: '20px',
-      margin: 0,
-      padding: 0,
-    },
+   navLinks: {
+  listStyle: 'none',
+  flexDirection: 'column',
+  gap: '20px',
+  margin: 0,
+  padding: 0,
+},
+
     navLink: {
       color: 'black',
       textDecoration: 'none',

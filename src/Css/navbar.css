@@ -45,8 +45,8 @@
     margin-right: 10px;
   }
 
-  .nav-links {
-    display: none;
+   .nav-links {
+    display: none; /* start hidden */
     flex-direction: column;
     background-color: white;
     position: absolute;
@@ -59,7 +59,7 @@
   }
 
   .nav-links.open {
-    display: flex;
+    display: flex; /* show only when open class is added */
   }
 
   .nav-links a,
