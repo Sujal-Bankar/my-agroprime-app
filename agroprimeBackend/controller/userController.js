@@ -82,4 +82,28 @@ const getUserOrders = async (req, res) => {
   }
 };
 
-module.exports={storeUser,loginUser,createOrder,getUserOrders,updateUser}
+const getUserForAdmin = async(req,res)=>{
+  const user = await User.find();
+  try {
+    if(user){
+      return res.status(200).json("Done",user);
+    }
+    return res.status(400).json("Not Done");
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
+
+const getOrderForAdmin = async (req,res) =>{
+  const order = await Order.find();
+  try {
+    if(order){
+      return res.status(200).json("Done",order);
+      }
+      return res.status(400).json("Not Done");
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
+
+module.exports={storeUser,loginUser,createOrder,getUserOrders,updateUser,getUserForAdmin,getOrderForAdmin}
