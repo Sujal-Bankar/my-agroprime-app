@@ -30,13 +30,16 @@
 .dropdown:hover .dropdown-content {
   display: flex;
 }
+
 .hamburger {
   display: none;
 }
-.nav-logo{
-   height: 70px;
-    width:auto;
+
+.nav-logo {
+  height: 70px;
+  width: auto;
 }
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex !important;
@@ -46,7 +49,7 @@
   }
 
    .nav-links {
-    display: none; /* start hidden */
+    display: none;
     flex-direction: column;
     background-color: white;
     position: absolute;
@@ -59,7 +62,10 @@
   }
 
   .nav-links.open {
-    display: flex; /* show only when open class is added */
+    display: flex;
+  }
+  .nav-links.open {
+    display: flex; /* shown when menuOpen is true */
   }
 
   .nav-links a,
@@ -72,8 +78,17 @@
     position: relative;
     box-shadow: none;
   }
-  .nav-logo{
+
+  .nav-logo {
     height: 40px;
-    width: none;
+    width: auto;
+  }
+  .dropdown:hover .dropdown-content {
+    display: none; /* disable hover open on mobile */
+  }
+
+  /* Instead, use a class when dropdown is opened by click */
+  .dropdown.active .dropdown-content {
+    display: flex;
   }
 }

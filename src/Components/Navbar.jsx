@@ -6,8 +6,7 @@ const Navbar = ({ variant }) => {
   const location = useLocation();
   const { addedItems } = location.state || [];
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const isTransparent = variant === 'hero';
+  const [shopOpen, setShopOpen] = useState(false);
 
   const styles = {
     navbar: {
@@ -23,30 +22,12 @@ const Navbar = ({ variant }) => {
       zIndex: 10,
       boxShadow: '0 2px 10px rgba(0.20, 0.20, 0.20, 0.20)',
     },
-    logo: {
-      fontSize: '24px',
-      fontWeight: 'bold',
-      marginLeft: '10px',
-    },
-   navLinks: {
-  listStyle: 'none',
-  flexDirection: 'column',
-  gap: '20px',
-  margin: 0,
-  padding: 0,
-},
-
     navLink: {
       color: 'black',
       textDecoration: 'none',
       fontSize: '20px',
       fontWeight: '600',
       transition: 'color 0.3s ease'
-    },
-    hamburger: {
-      display: 'none',
-      flexDirection: 'column',
-      cursor: 'pointer',
     },
     bar: {
       height: '3px',
@@ -61,18 +42,23 @@ const Navbar = ({ variant }) => {
     e.target.style.color = isHovering ? '#2e7d32' : 'black';
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setShopOpen(false);
+  };
+
   return (
     <nav style={styles.navbar}>
       <img
         src="/images/logo1.png"
         alt="AgroPrime Logo"
-        className='nav-logo'
+        className="nav-logo"
       />
 
       {/* Hamburger button (mobile only) */}
       <div
         className="hamburger"
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={() => setMenuOpen(prev => !prev)}
       >
         <div style={styles.bar}></div>
         <div style={styles.bar}></div>
@@ -82,39 +68,43 @@ const Navbar = ({ variant }) => {
       {/* Nav links */}
       <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
         <Link to="/" style={styles.navLink}
-        onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>Home</Link>
 
         <Link to="/AboutUs" style={styles.navLink}
-        onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>About</Link>
 
         <a style={styles.navLink}
-        onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>Information</a>
 
-        <li className="dropdown">
+        {/* Dropdown */}
+        <li
+          className={`dropdown ${shopOpen ? 'active' : ''}`}
+          onClick={() => setShopOpen(prev => !prev)}
+        >
           <span className="dropbtn">
             <Link to="/ProductMain" style={styles.navLink}
-            onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
               onMouseEnter={(e) => handleHover(e, true)}
               onMouseLeave={(e) => handleHover(e, false)}>Shop &#9662;</Link>
           </span>
           <div className="dropdown-content">
-            <Link to="/ViewOrders" onClick={() => setMenuOpen(false)}>View Orders</Link>
+            <Link to="/ViewOrders" onClick={closeMenu}>View Orders</Link>
           </div>
         </li>
 
         <Link to="/ContactSection" style={styles.navLink}
-        onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>Contact</Link>
 
         <Link to="/Login" style={styles.navLink}
-        onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>Login</Link>
       </div>

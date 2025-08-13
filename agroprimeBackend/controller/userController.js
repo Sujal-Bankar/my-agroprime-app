@@ -105,5 +105,17 @@ const getOrderForAdmin = async (req,res) =>{
     return res.status(500).json({ message: error.message });
   }
 }
+const getOneUserForAdmin = async(req,res)=>{
+  const email = req.params.email;
+  const user = await User.findOne({email});
+  try {
+    if(user){
+      return res.status(200).json(user);
+    }
+    return res.status(400).json("Not Done");
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
 
-module.exports={storeUser,loginUser,createOrder,getUserOrders,updateUser,getUserForAdmin,getOrderForAdmin}
+module.exports={storeUser,loginUser,createOrder,getUserOrders,updateUser,getUserForAdmin,getOrderForAdmin,getOneUserForAdmin}
