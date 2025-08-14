@@ -2,6 +2,8 @@ const express = require('express');
 const { storeUser, loginUser, createOrder, getUserOrders, updateUser, getUserForAdmin, getOrderForAdmin, getOneUserForAdmin, deleteProductForAdmin, makePayment } = require('../controller/userController');
 const routes = express.Router();
 
+const Stripe = require('stripe');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 routes.post('/signup',storeUser);
 routes.post('/login',loginUser);
@@ -12,13 +14,8 @@ routes.get('/getAllUsers',getUserForAdmin)
 routes.get('/getAllOrders',getOrderForAdmin)
 routes.get('/getOneUser/:email',getOneUserForAdmin)
 routes.get('/deleteProduct/:email',deleteProductForAdmin)
-routes.post('/create-checkout-session',makePayment)
-const express = require('express');
-const router = express.Router();
-const Stripe = require('stripe');
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-router.post('/create-checkout-session', async (req, res) => {
+routes.post('/create-checkout-session', async (req, res) => {
   try {
     const { items, email, shipping } = req.body;
 
@@ -31,12 +28,12 @@ router.post('/create-checkout-session', async (req, res) => {
         price_data: {
           currency: 'inr',
           product_data: { name: item.name },
-          unit_amount: item.amount, // in paise
+          unit_amount: item.amount, 
         },
         quantity: item.quantity,
       })),
-      success_url: 'https://yourfrontend.com/success',
-      cancel_url: 'https://yourfrontend.com/cancel',
+      success_url: "https://my-agroprime-app.onrender.com/api/ViewOrders",
+      cancel_url: "https://my-agroprime-app.onrender.com/api/ProductDetails",
     });
 
     res.json({ id: session.id });
