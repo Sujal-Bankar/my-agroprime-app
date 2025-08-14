@@ -3,7 +3,7 @@ import '../Css/Weather.css'
 import sun_cloud from '../images/sun-cloud.png'
 import map_pin from '../images/map-pin.png'
 import rain_boy from '../images/rainboy.png'
-import logo from '../images/logo.png'
+import logo from '../images/logo.jpg'
 import { Link } from 'react-router-dom';
 import AboutUs from './AboutUs'
 import Navbar from './Navbar'

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../Css/UsersData.css"; 
-import logo from '../images/logo.jpeg';
+import logo from '../images/logo.jpg';
 import { useNavigate } from "react-router-dom";
 
 const AdminOrders = () => {

@@ -84,6 +84,47 @@ const ProductDetails = () => {
     if (result.error) alert(result.error.message);
   };
 
+  async function redirectOrder(){
+    try {
+      if (!isFormValid()) {
+        alert("Please fill all required fields before checking out.");
+        return;
+      }
+
+      const email = localStorage.getItem('email');
+      if (!email) {
+        alert("Please login to place order");
+        return;
+      }
+
+      const order = {
+        email,
+        items: cartItems,
+        shippingInfo: formData,
+        totalAmount: calculateSubtotal()
+      };
+
+      const response = await fetch('https://my-agroprime-app.onrender.com/api/order', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(order)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Order Placed Successfully!");
+        navigate('/OrderDone');
+      } else {
+        alert("Failed to place order");
+      }
+
+    } catch (err) {
+      console.error("Checkout error:", err);
+    }
+  };
+    
+
   return (
     <>
       <Navbar />

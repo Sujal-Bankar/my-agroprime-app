@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../Css/AdminMain.css";
-import logo from "../images/logo.jpeg";
+import logo from "../images/logo.jpg";
 
 const AdminMain = () => {
   const navigate = useNavigate();

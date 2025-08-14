@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../images/logo.png'
+import logo from '../images/logo.jpg'
 import '../Css/WeatherInfo.css'
 import { Link, useLocation } from 'react-router-dom';
 import weather from './Weather'
