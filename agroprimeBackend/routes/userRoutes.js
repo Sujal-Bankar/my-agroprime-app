@@ -13,5 +13,38 @@ routes.get('/getAllOrders',getOrderForAdmin)
 routes.get('/getOneUser/:email',getOneUserForAdmin)
 routes.get('/deleteProduct/:email',deleteProductForAdmin)
 routes.post('/create-checkout-session',makePayment)
+const express = require('express');
+const router = express.Router();
+const Stripe = require('stripe');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+router.post('/create-checkout-session', async (req, res) => {
+  try {
+    const { items, email, shipping } = req.body;
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      customer_email: email,
+      shipping_address_collection: { allowed_countries: ['IN'] },
+      line_items: items.map(item => ({
+        price_data: {
+          currency: 'inr',
+          product_data: { name: item.name },
+          unit_amount: item.amount, // in paise
+        },
+        quantity: item.quantity,
+      })),
+      success_url: 'https://yourfrontend.com/success',
+      cancel_url: 'https://yourfrontend.com/cancel',
+    });
+
+    res.json({ id: session.id });
+  } catch (error) {
+    console.error('Stripe session error:', error);
+    res.status(500).json({ error: 'Failed to create checkout session' });
+  }
+});
+
 
 module.exports = routes; 
