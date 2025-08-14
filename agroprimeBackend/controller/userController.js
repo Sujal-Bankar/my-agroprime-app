@@ -1,5 +1,6 @@
 const User = require('../model/User');
 const Order = require('../model/order');
+const stripe = require('stripe')
 
 const storeUser = async(req,res) =>{
     try {
@@ -131,4 +132,31 @@ const deleteProductForAdmin = async(req,res)=>{
   }
 }
 
-module.exports={storeUser,loginUser,createOrder,getUserOrders,updateUser,getUserForAdmin,getOrderForAdmin,getOneUserForAdmin,deleteProductForAdmin}
+const makePayment = async (req,res)=>{
+   try {
+    const { items, email } = req.body;
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      line_items: items.map(item => ({
+        price_data: {
+          currency: "inr",
+          product_data: { name: item.name },
+          unit_amount: item.amount,
+        },
+        quantity: item.quantity,
+      })),
+      success_url: "https://my-agroprime-app.onrender.com/api/ViewOrders",
+      cancel_url: "https://my-agroprime-app.onrender.com/api/ProductDetails",
+      customer_email: email,
+    });
+
+    res.json({ id: session.id });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Something went wrong" });
+  }
+}
+
+module.exports={storeUser,loginUser,createOrder,getUserOrders,updateUser,getUserForAdmin,getOrderForAdmin,getOneUserForAdmin,deleteProductForAdmin,makePayment}

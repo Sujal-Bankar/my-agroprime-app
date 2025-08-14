@@ -1,6 +1,8 @@
 const express = require('express');
-const { storeUser, loginUser, createOrder, getUserOrders, updateUser, getUserForAdmin, getOrderForAdmin, getOneUserForAdmin, deleteProductForAdmin } = require('../controller/userController');
+const { storeUser, loginUser, createOrder, getUserOrders, updateUser, getUserForAdmin, getOrderForAdmin, getOneUserForAdmin, deleteProductForAdmin, makePayment } = require('../controller/userController');
 const routes = express.Router();
+const stripe = require('stripe');
+
 
 routes.post('/signup',storeUser);
 routes.post('/login',loginUser);
@@ -11,5 +13,6 @@ routes.get('/getAllUsers',getUserForAdmin)
 routes.get('/getAllOrders',getOrderForAdmin)
 routes.get('/getOneUser/:email',getOneUserForAdmin)
 routes.get('/deleteProduct/:email',deleteProductForAdmin)
+routes.post('/create-checkout-session',makePayment)
 
 module.exports = routes; 
