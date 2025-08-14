@@ -32,8 +32,8 @@ routes.post('/create-checkout-session', async (req, res) => {
         },
         quantity: item.quantity,
       })),
-      success_url: "https://my-agroprime-app.onrender.com/api/ViewOrders",
-      cancel_url: "https://my-agroprime-app.onrender.com/api/ProductDetails",
+      success_url: "http://localhost:3000/ViewOrders",
+      cancel_url: "http://localhost:3000/ProductDetails",
     });
 
     res.json({ id: session.id });
