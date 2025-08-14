@@ -1,25 +1,22 @@
-import React, { useState, useContext } from "react";
-import { CartContext } from "./CartContext";
-import { Link, useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import "../Css/ProductDetails.css";
-import { loadStripe } from "@stripe/stripe-js";
+import React, { useState, useContext } from 'react';
+import { CartContext } from './CartContext';
+import { Link, useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import '../Css/ProductDetails.css';
 
-const stripePromise = loadStripe("pk_test_51RvdUQKFwmFPDNtxzdOOAsgKn2t0zxzRJ8I1jguJykRtKymcZxSpyDS1dkuIkoozYsFFPNrpsLBnhAjhzB18duik00kBHsFkci");
- 
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { cartItems, setCartItems } = useContext(CartContext);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    street: "",
-    city: "",
-    state: "",
-    zip: "",
-    payment: "Cash on Delivery",
+    firstName: '',
+    lastName: '',
+    phone: '',
+    street: '',
+    city: '',
+    state: '',
+    zip: '',
+    payment: 'Cash on Delivery',
   });
 
   const handleChange = (e) => {
@@ -40,8 +37,10 @@ const ProductDetails = () => {
 
   const decreaseQty = (index) => {
     const updated = [...cartItems];
-    if (updated[index].quantity > 1) updated[index].quantity -= 1;
-    setCartItems(updated);
+    if (updated[index].quantity > 1) {
+      updated[index].quantity -= 1;
+      setCartItems(updated);
+    }
   };
 
   const removeItem = (indexToRemove) => {
@@ -52,36 +51,48 @@ const ProductDetails = () => {
   const calculateSubtotal = () => {
     return cartItems.reduce((sum, item) => {
       const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
-      return Math.round(sum + price * item.quantity);
+      return Math.round(sum + (price * item.quantity));
     }, 0);
   };
 
-  const handlePayment = async () => {
-    if (!isFormValid()) {
-      alert("Please fill all fields before payment!");
-      return;
+  const handleCheckout = async () => {
+    try {
+      if (!isFormValid()) {
+        alert("Please fill all required fields before checking out.");
+        return;
+      }
+
+      const email = localStorage.getItem('email');
+      if (!email) {
+        alert("Please login to place order");
+        return;
+      }
+
+      const order = {
+        email,
+        items: cartItems,
+        shippingInfo: formData,
+        totalAmount: calculateSubtotal()
+      };
+
+      const response = await fetch('https://my-agroprime-app.onrender.com/api/order', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(order)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Order Placed Successfully!");
+        navigate('/OrderDone');
+      } else {
+        alert("Failed to place order");
+      }
+
+    } catch (err) {
+      console.error("Checkout error:", err);
     }
-
-    const stripe = await stripePromise;
-
-    const response = await fetch("https://my-agroprime-app.onrender.com/create-checkout-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        items: cartItems.map(item => ({
-          name: item.name,
-          amount: parseInt(item.price.replace(/[^0-9]/g, "")) * 100,
-          quantity: item.quantity
-        })),
-        email: localStorage.getItem("email"),
-        shipping: formData
-      }),
-    });
-
-    const session = await response.json();
-    const result = await stripe.redirectToCheckout({ sessionId: session.id });
-
-    if (result.error) alert(result.error.message);
   };
 
   return (
@@ -94,8 +105,8 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="product-details-container" style={{ display: "flex" }}>
-        <div className="product-details">
+      <div style={{ display: 'flex' }}>
+        <div className='product-details'>
           <div className="cart-container">
             <h1>Your Shopping Cart ({cartItems.length} items)</h1>
           </div>
@@ -123,59 +134,6 @@ const ProductDetails = () => {
             </div>
           ))}
 
-          {/* Shipping Form */}
-          <div className="checkout-form">
-            <h2>Shipping Details</h2>
-            <div className="form-row">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name *"
-                value={formData.firstName}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name *"
-                value={formData.lastName}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-row">
-              <input
-                type="text"
-                name="street"
-                placeholder="Street *"
-                value={formData.street}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-row">
-              <input
-                type="text"
-                name="city"
-                placeholder="City *"
-                value={formData.city}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="state"
-                placeholder="State *"
-                value={formData.state}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="zip"
-                placeholder="Zip *"
-                value={formData.zip}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-
           <div className="cart-summary">
             <div className="summary-row">
               <h2>Subtotal</h2>
@@ -190,13 +148,72 @@ const ProductDetails = () => {
               <h2>₹{(calculateSubtotal() + 1200).toFixed(2)}</h2>
             </div>
             <div className="checkout-container">
-              <button onClick={handlePayment} className="checkout-btn">Buy Now</button>
-              <p className="continue-text">
-                or <br />
-                <Link to="/AgroProducts">Continue Shopping</Link>
-              </p>
+              <button onClick={handleCheckout} className="checkout-btn">Proceed to Checkout</button>
+              <p className="continue-text">or <Link to="/AgroProducts">Continue Shopping</Link></p>
             </div>
           </div>
+        </div>
+
+        <div className="checkout-form-container">
+          <form className="checkout-form">
+            <h1>Complete Your Purchase</h1>
+
+            <section className="form-section">
+              <h3 className='form-title'>Personal Information</h3>
+              <hr />
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="firstName">First Name*</label>
+                  <input type="text" id="firstName" name="firstName" required value={formData.firstName} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="lastName">Last Name*</label>
+                  <input type="text" id="lastName" name="lastName" required value={formData.lastName} onChange={handleChange} />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} />
+              </div>
+            </section>
+
+            <section className="form-section">
+              <h3 className='form-title'>Shipping Address</h3>
+              <hr />
+              <div className="form-group">
+                <label htmlFor="street">Street Address*</label>
+                <input type="text" id="street" name="street" required value={formData.street} onChange={handleChange} />
+              </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="city">City*</label>
+                  <input type="text" id="city" name="city" required value={formData.city} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="state">State*</label>
+                  <input type="text" id="state" name="state" required value={formData.state} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="zip">Zip Code*</label>
+                  <input type="text" id="zip" name="zip" required value={formData.zip} onChange={handleChange} />
+                </div>
+              </div>
+            </section>
+
+            <section className="form-section">
+              <h3 className='form-title'>Payment Method</h3>
+              <div className="form-group">
+                <label className='pay-label'>
+                  <input type="radio" name="payment" value="Cash on Delivery" checked={formData.payment === "Cash on Delivery"} onChange={handleChange} />
+                  <h5>Cash on Delivery</h5>
+                </label>
+                <label className='pay-label'>
+                  <input type="radio" name="payment" value="UPI" checked={formData.payment === "UPI"} onChange={handleChange} />
+                  <h5>UPI</h5>
+                </label>
+              </div>
+            </section>
+          </form>
         </div>
       </div>
 
