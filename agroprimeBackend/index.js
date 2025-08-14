@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
-const stripe = require('stripe')
+const Stripe = require('stripe')
 dotenv.config();
  
 const app=express();

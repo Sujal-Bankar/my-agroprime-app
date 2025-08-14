@@ -1,7 +1,6 @@
 const express = require('express');
 const { storeUser, loginUser, createOrder, getUserOrders, updateUser, getUserForAdmin, getOrderForAdmin, getOneUserForAdmin, deleteProductForAdmin, makePayment } = require('../controller/userController');
 const routes = express.Router();
-const stripe = require('stripe');
 
 
 routes.post('/signup',storeUser);

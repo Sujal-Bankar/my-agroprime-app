@@ -1,6 +1,5 @@
 const User = require('../model/User');
 const Order = require('../model/order');
-const stripe = require('stripe')
 
 const storeUser = async(req,res) =>{
     try {
