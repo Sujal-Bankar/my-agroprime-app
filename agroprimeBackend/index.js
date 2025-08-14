@@ -9,7 +9,7 @@ dotenv.config();
 const app=express();
 app.use(cors());
 app.use(express.json())
-const stripe = new Stripe(sk_test_51RvdUQKFwmFPDNtxrap0ObRhKLSjFsnyJmW6TRJRHZ3H8iMxY2nLNYdZ6P1LxENdWrdQrTMEvi9ooB9CBaFRSI3L00lVRb9CPQ);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 app.use('/api',userRoutes)
 
