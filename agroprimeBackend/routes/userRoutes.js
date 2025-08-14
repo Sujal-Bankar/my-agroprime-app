@@ -18,13 +18,21 @@ routes.get('/deleteProduct/:email',deleteProductForAdmin)
 routes.post('/create-checkout-session', async (req, res) => {
   try {
     const { items, email, shipping } = req.body;
-
+    const shippingFee={
+          price_data: {
+        currency: 'inr',
+        product_data: { name: 'Shipping Fee' },
+        unit_amount: 120000, 
+      },
+      quantity: 1,
+    }
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
       customer_email: email,
       shipping_address_collection: { allowed_countries: ['IN'] },
-      line_items: items.map(item => ({
+      line_items:[ 
+        ...items.map(item => ({
         price_data: {
           currency: 'inr',
           product_data: { name: item.name },
@@ -32,6 +40,8 @@ routes.post('/create-checkout-session', async (req, res) => {
         },
         quantity: item.quantity,
       })),
+      shippingFee
+    ],
       success_url: "https://my-agroprime-app.vercel.app/OrderDone",
       cancel_url: "https://my-agroprime-app.vercel.app/ProductDetails",
     });

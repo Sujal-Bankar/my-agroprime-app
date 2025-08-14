@@ -74,7 +74,7 @@ const ProductDetails = () => {
       body: JSON.stringify({
         items: cartItems.map(item => ({
           name: item.name,
-          amount: parseInt(item.price.replace(/[^0-9]/g, "")) * 100,
+          amount: (parseInt(item.price.replace(/[^0-9]/g, "")) * 100),
           quantity: item.quantity
         })),
         email: localStorage.getItem("email"),
