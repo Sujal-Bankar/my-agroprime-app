@@ -32,7 +32,7 @@ routes.post('/create-checkout-session', async (req, res) => {
         },
         quantity: item.quantity,
       })),
-      success_url: "http://localhost:3000/ViewOrders",
+      success_url: "http://localhost:3000/OrderDone",
       cancel_url: "http://localhost:3000/ProductDetails",
     });
 
