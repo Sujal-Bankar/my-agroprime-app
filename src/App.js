@@ -33,6 +33,14 @@ import UsersData from './Components/UsersData';
 import OrderData from './Components/OrderData';
 import AdminMain from './Components/AdminMain';
 import AdminLogin from './Components/AdminLogin';
+import '../src/Css/cashcrops.css'
+import InfoSec from './InformationSection/InfoSec'
+import WeatherForecast from "./InformationSection/AllInfo/WeatherForecast";
+import PestControl from "./InformationSection/AllInfo/PestControl";
+import SoilFertility from "./InformationSection/AllInfo/SoilFertility";
+import CropCultivation from "./InformationSection/AllInfo/CropCultivation";
+import IrrigationTechniques from "./InformationSection/AllInfo/IrrigationTechniques";
+import GovernmentSchemes from "./InformationSection/AllInfo/GovernmentSchemes";
 
 function App() {
   return (
@@ -63,6 +71,14 @@ function App() {
         <Route path="/AdminMain"  element={<AdminMain/>}></Route>
         <Route path="/UsersData"  element={<UsersData/>}></Route>
         <Route path="/OrderData"  element={<OrderData/>}></Route>
+      
+        <Route path="/InfoSec"  element={<InfoSec/>}></Route>
+        <Route path="/soil-fertility" element={<SoilFertility />} />
+        <Route path="/crop-cultivation" element={<CropCultivation />} />
+        <Route path="/irrigation-techniques" element={<IrrigationTechniques />} />
+        <Route path="/pest-control" element={<PestControl />} />
+        <Route path="/weather-forecast" element={<WeatherForecast />} />
+        <Route path="/government-scheme" element={<GovernmentSchemes />} />
        </Routes>
     </Router>
   );

@@ -1,0 +1,110 @@
+.mainsection {
+  position: relative;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.mainimg {
+  height: 500px;
+  width: 900px;
+  display: block;
+  margin-top: 150px;
+  border-radius: 10px;
+  border: rgba(0, 0, 0, 0.2);
+}
+
+.textsection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.textsection h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.textsection p {
+  font-size: 18px;
+}
+
+.explorebtn{
+
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #36D412;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+
+}
+
+
+/* .OurServices h3{
+
+    margin-left: 225px;
+
+} */
+
+
+.services-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.services-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #1e3932;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.service-box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-box img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.service-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.service-box p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+

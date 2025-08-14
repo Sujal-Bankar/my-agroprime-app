@@ -55,7 +55,6 @@ const Navbar = ({ variant }) => {
         className="nav-logo"
       />
 
-      {/* Hamburger button (mobile only) */}
       <div
         className="hamburger"
         onClick={() => setMenuOpen(prev => !prev)}
@@ -65,7 +64,6 @@ const Navbar = ({ variant }) => {
         <div style={styles.bar}></div>
       </div>
 
-      {/* Nav links */}
       <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
         <Link to="/" style={styles.navLink}
           onClick={closeMenu}
@@ -77,12 +75,11 @@ const Navbar = ({ variant }) => {
           onMouseEnter={(e) => handleHover(e, true)}
           onMouseLeave={(e) => handleHover(e, false)}>About</Link>
 
-        <a style={styles.navLink}
+        <Link to="/InfoSec" style={styles.navLink}
           onClick={closeMenu}
           onMouseEnter={(e) => handleHover(e, true)}
-          onMouseLeave={(e) => handleHover(e, false)}>Information</a>
+          onMouseLeave={(e) => handleHover(e, false)}>Information</Link>
 
-        {/* Dropdown */}
         <li
           className={`dropdown ${shopOpen ? 'active' : ''}`}
           onClick={() => setShopOpen(prev => !prev)}
