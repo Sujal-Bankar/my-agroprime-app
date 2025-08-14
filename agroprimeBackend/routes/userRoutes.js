@@ -32,8 +32,8 @@ routes.post('/create-checkout-session', async (req, res) => {
         },
         quantity: item.quantity,
       })),
-      success_url: "http://localhost:3000/OrderDone",
-      cancel_url: "http://localhost:3000/ProductDetails",
+      success_url: "https://my-agroprime-app.vercel.app/OrderDone",
+      cancel_url: "https://my-agroprime-app.vercel.app/ProductDetails",
     });
 
     res.json({ id: session.id });
