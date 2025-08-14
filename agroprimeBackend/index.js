@@ -3,12 +3,13 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
-
+const stripe = require('stripe')
 dotenv.config();
  
 const app=express();
 app.use(cors());
 app.use(express.json())
+const stripe = new Stripe(sk_test_51RvdUQKFwmFPDNtxrap0ObRhKLSjFsnyJmW6TRJRHZ3H8iMxY2nLNYdZ6P1LxENdWrdQrTMEvi9ooB9CBaFRSI3L00lVRb9CPQ);
 
 app.use('/api',userRoutes)
 
