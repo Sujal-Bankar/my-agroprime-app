@@ -1,5 +1,5 @@
 const express = require('express');
-const { storeUser, loginUser, createOrder, getUserOrders, updateUser, getUserForAdmin, getOrderForAdmin, getOneUserForAdmin, deleteProductForAdmin, makePayment, DeleteOneUserForAdmin, deleteOrderForAdmin, getAllProducts } = require('../controller/userController');
+const { storeUser, loginUser, createOrder, getUserOrders, updateUser, getUserForAdmin, getOrderForAdmin, getOneUserForAdmin, deleteProductForAdmin, makePayment, DeleteOneUserForAdmin, deleteOrderForAdmin, getAllProducts, addProduct } = require('../controller/userController');
 const routes = express.Router();
 
 const Stripe = require('stripe');
@@ -16,6 +16,7 @@ routes.get('/getOneUser/:email',getOneUserForAdmin)
 routes.get('/deleteOrder/:email',deleteOrderForAdmin)
 routes.get('/deleteUser/:email',DeleteOneUserForAdmin)
 routes.get('/getAllProducts',getAllProducts)
+routes.post('/addProduct',addProduct)
 
 routes.post('/create-checkout-session', async (req, res) => {
   try {

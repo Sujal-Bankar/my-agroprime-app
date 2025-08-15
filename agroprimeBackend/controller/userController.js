@@ -180,6 +180,18 @@ const getAllProducts = async(req,res)=>{
     return res.status(500).json({ message: error.message });
   }
 }
+
+const addProduct = async(req,res)=>{
+  const { } = req.body;
+
+  try {
+    const product = new Product({});
+    await product.save();
+    res.status(200).json({ message: "Product Added", product });
+  } catch (err) {
+    res.status(500).json({ message: "Product Not Added", error: err });
+  } 
+}
 module.exports={storeUser,
   loginUser,
   createOrder,
@@ -191,5 +203,6 @@ module.exports={storeUser,
   deleteOrderForAdmin,
   makePayment,
   DeleteOneUserForAdmin,
-  getAllProducts
+  getAllProducts,
+  addProduct
 }

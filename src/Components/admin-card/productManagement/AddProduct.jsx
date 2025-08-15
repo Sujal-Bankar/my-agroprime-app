@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "../../../Css/AddProduct.css";
 import logo from "../../../images/logo.jpg";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
+const navigate = useNavigate();
+
   const [product, setProduct] = useState({
     name: "",
     description: "",
@@ -15,10 +18,26 @@ const AddProduct = () => {
     setProduct({ ...product, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log("Product added:", product);
-    alert("Product added successfully!");
+    try {
+        const response = await fetch('https://my-agroprime-app.onrender.com/api/addProduct',
+            {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(product),
+            }
+            );
+        const data = await response.json();
+        if(response.ok){
+
+            alert('Product Added Successfully...');
+        }
+    } catch (error) {
+        console.log(error);        
+    }
     setProduct({ name: "", description: "", price: "", image: "" });
   };
 
@@ -26,7 +45,7 @@ const AddProduct = () => {
     <>
       <nav className="admin-navbar">
         <img src={logo} alt="Logo" className="logo" />
-        <h1 className="nav-title">Add Product</h1>
+               <div onClick={()=>navigate("/AdminMain")} className="nav-title">Admin Dashboard</div>
       </nav>
 
       <div className="add-product-container">
