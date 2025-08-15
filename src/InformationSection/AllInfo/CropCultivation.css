@@ -1,182 +1,313 @@
+/* Hero Section */
 .hero-parallax {
   position: relative;
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(to top, #a8e6cf, #dcedc1);
-  overflow: hidden;
+  height: 350px;
+  background: linear-gradient(to bottom, #a8edea, #fed6e3);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
   text-align: center;
-  color: #1e3d2b;
-  animation: fadeIn 2s ease forwards;
+  z-index: 2;
 }
 
 .hero-content h1 {
-  font-size: 2rem;
-  margin-bottom: 0.3rem;
-  animation: slideDown 1.5s ease forwards;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1d4ed8;
 }
 
 .hero-content p {
-  font-size: 1rem;
-  animation: slideUp 1.5s ease forwards;
+  font-size: 1.2rem;
+  color: #334155;
 }
 
-/* Floating elements */
-.floating-elements .cloud,
-.floating-elements .sun,
-.floating-elements .leaf {
+/* Floating Elements */
+.floating-elements {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 15s infinite linear;
+}
+
+.cloud1 { top: 20px; left: 10%; animation-delay: 0s; }
+.cloud2 { top: 60px; left: 30%; animation-delay: 5s; }
+.cloud3 { top: 40px; left: 60%; animation-delay: 10s; }
+.cloud4 { top: 80px; left: 80%; animation-delay: 2s; }
+
+.sun {
+  position: absolute;
+  top: 20px; right: 10%;
+  font-size: 3rem;
+  animation: rotateSun 20s linear infinite;
+}
+
+.leaf {
   position: absolute;
   font-size: 1.5rem;
-  opacity: 0.8;
+  animation: fall 10s infinite linear;
 }
 
-/* Clouds animation */
-.cloud1 { top: 10px; left: -80px; animation: moveCloud 30s linear infinite; }
-.cloud2 { top: 30px; right: -100px; animation: moveCloud 35s linear infinite reverse; }
-.cloud3 { top: 50px; left: -120px; animation: moveCloud 40s linear infinite; }
-.cloud4 { top: 70px; right: -140px; animation: moveCloud 45s linear infinite reverse; }
-.cloud5 { top: 20px; left: -150px; animation: moveCloud 50s linear infinite; }
+.leaf1 { top: -10%; left: 20%; animation-delay: 0s; }
+.leaf2 { top: -10%; left: 70%; animation-delay: 5s; }
 
-/* Sun animation */
-.sun {
-  top: 20px;
-  right: 15%;
-  font-size: 2rem;
-  animation: sunMove 20s ease-in-out infinite alternate;
-}
-
-/* Leaves animation */
-.leaf1 { bottom: 20px; left: 15%; animation: floatLeaf 6s ease-in-out infinite alternate; }
-.leaf2 { bottom: 30px; right: 20%; animation: floatLeaf 8s ease-in-out infinite alternate; }
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes moveCloud {
+@keyframes float {
   0% { transform: translateX(0); }
-  100% { transform: translateX(120vw); }
+  100% { transform: translateX(1000px); }
 }
 
-@keyframes sunMove {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
-  100% { transform: translateY(0); }
+@keyframes rotateSun {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-@keyframes floatLeaf {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(10deg); }
-  100% { transform: translateY(0) rotate(0deg); }
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); }
+  100% { transform: translateY(400px) rotate(360deg); }
 }
 
-
-
-
-
-
-.crop-cultivation-section {
-
-    /* border: 1px solid black; */
-    width: 1100px;
-    margin-left: 40px;
+/* Content Sections */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
 }
 
-
-.crop-cultivation-section1 {
-    
-  background-color: #E5E7EB;
-  border-radius: 10px;
+.section-card {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
-  gap: 20px; 
+  align-items: center;
+  margin-bottom: 60px;
+  gap: 30px;
 }
 
+.section-card.row-reverse { flex-direction: row-reverse; }
 
-.crop-cultivation-text {
+.section-text {
   flex: 1;
-  text-align: left;
-  margin-left: 20px;
-  font-size: 19px;
 }
 
+.section-text h2 {
+  font-size: 2rem;
+  color: #1e40af;
+  margin-bottom: 10px;
+}
 
-.crop-cultivation-image1 {
+.section-text p {
+  font-size: 1.1rem;
+  color: #475569;
+}
 
-  width: 350px; 
-  height: 300px;
-  margin: 20px 40px 20px 0px;
+.section-img {
+  width: 500px;
+  height: auto;
   border-radius: 10px;
-
+  object-fit: cover;
 }
 
-.crop-cultivation-section2, .crop-cultivation-section3, .crop-cultivation-section4 {
-
-  margin-top: 60px;
-}
-
-.crop-cultivation-section2 p, .crop-cultivation-section3 p , .crop-cultivation-section4 p {
-
-  font-size: 19px;
-}
-
-.crop-cultivation-image2{
-
-  width: 1110px;
-  height: 550px; 
-  border-radius: 10px;
-  
-}
-
+/* Buttons */
 .button {
-  background-color: #2563eb; /* Tailwind: blue-600 */
+  background-color: #2563eb;
   color: white;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  font-weight: 500;
+  border-radius: 8px;
   border: none;
-  border-radius: 0.5rem; /* 8px rounded */  
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  margin: 20px 0;
+  transition: all 0.25s ease;
 }
 
 .button:hover {
-  background-color: #1d4ed8; /* Tailwind: blue-700 */
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
 }
 
-.button:active {
-  background-color: #1e40af; /* Tailwind: blue-800 */
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+/* Timeline / Step Section */
+.process {
+  margin-top: 80px;
 }
 
-.button:focus {
-  outline: 3px solid rgba(37, 99, 235, 0.5);
-  outline-offset: 2px;
+.process-head h2 {
+  font-size: 2rem;
+  color: #1e40af;
+  margin-bottom: 15px;
+}
+
+.process-progress {
+  position: relative;
+  height: 8px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.process-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  border-radius: 4px;
+}
+
+.process-progress-text {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  font-size: 0.9rem;
+  color: #1e40af;
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-left: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.step-card.active .step-index,
+.step-card.active h3 { color: #2563eb; }
+
+.step-node {
+  position: absolute;
+  left: 0; top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+}
+
+.step-node .step-index {
+  font-weight: bold;
+  color: #475569;
+}
+
+.step-body h3 {
+  margin: 0 0 5px;
+  font-size: 1.2rem;
+}
+
+.step-body p {
+  margin: 0;
+  color: #64748b;
+}
+
+.step-meter {
+  height: 4px;
+  background: #3b82f6;
+  border-radius: 4px;
+  margin-top: 8px;
+  transform-origin: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Compact Timeline */
+.compact-timeline {
+  padding: 40px 20px;
+  background: #f9fdf7;
+  border-radius: 16px;
+  margin: 30px 0;
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: 28px;
+  color: #2c6e49;
+  margin-bottom: 30px;
+}
+
+.timeline-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.timeline-card {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  width: 220px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-index {
+  font-weight: 700;
+  color: white;
+  background: #2c6e49;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-size: 14px;
+}
+
+.timeline-card h3 {
+  font-size: 18px;
+  color: #1e3f2b;
+  margin: 10px 0 6px;
+}
+
+.timeline-card p {
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.card-progress {
+  height: 3px;
+  background: #2c6e49;
+  border-radius: 2px;
+  margin-top: 10px;
+  transform-origin: left;
+}
+
+.timeline-card.active {
+  border-left: 3px solid #2c6e49;
 }

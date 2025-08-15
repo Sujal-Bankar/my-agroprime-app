@@ -1,0 +1,255 @@
+{
+  "infoSec": {
+    "heading1": "Empowering Farmers with",
+    "heading2": "Knowledge",
+    "subtitle": "Your one-stop resource for modern farming techniques, weather updates, and market insights.",
+    "exploreBtn": "Explore Information",
+    "servicesTitle": "Explore Our Services",
+    "soil": {
+      "title": "Soil & Fertility",
+      "desc": "Learn about soil health and nutrient management."
+    },
+    "crop": {
+      "title": "Crop Cultivation",
+      "desc": "Best practices for growing various crops."
+    },
+    "irrigation": {
+      "title": "Irrigation Techniques",
+      "desc": "Efficient water management for your farm."
+    },
+    "pest": {
+      "title": "Pest Control",
+      "desc": "Strategies for pest and disease management."
+    },
+    "weather": {
+      "title": "Weather Forecast",
+      "desc": "Real-time weather updates and forecasts."
+    },
+    "government": {
+      "title": "Government Schemes",
+      "desc": "Information on support and subsidies."
+    }
+  },
+  "common": {
+    "back": "Back"
+  },
+  "soilFertility": {
+    "hero": {
+      "title": "AgroPrime",
+      "subtitle": "Knowledge. Growth. Sustainability."
+    },
+    "timelineTitle": "Soil Management Timeline",
+    "sections": {
+      "soilFertility": {
+        "title": "Soil Fertility",
+        "text": "Soil fertility refers to the ability of soil to provide essential nutrients to plants for growth. Fertile soil ensures healthy crops and sustainable yields."
+      },
+      "soilHealth": {
+        "title": "Soil Health",
+        "text": "Healthy soil has a balanced ecosystem of microbes, organic matter, and nutrients, enabling crops to thrive and resist diseases."
+      },
+      "nutrientManagement": {
+        "title": "Nutrient Management",
+        "text": "Applying the right nutrients at the right time ensures maximum crop growth and minimizes environmental impact."
+      },
+      "improvingSoil": {
+        "title": "Improving Soil",
+        "text": "Practices like crop rotation, organic amendments, and cover cropping enhance soil structure and fertility over time."
+      }
+    },
+    "steps": {
+      "testing": {
+        "title": "Soil Testing",
+        "desc": "Regular testing helps determine nutrient deficiencies and soil pH."
+      },
+      "organic": {
+        "title": "Organic Matter",
+        "desc": "Adding compost or manure improves soil structure and fertility."
+      },
+      "rotation": {
+        "title": "Crop Rotation",
+        "desc": "Rotating crops prevents nutrient depletion and reduces pests."
+      },
+      "coverCrops": {
+        "title": "Cover Crops",
+        "desc": "Cover crops protect the soil from erosion and add organic matter."
+      },
+      "reducedTillage": {
+        "title": "Reduced Tillage",
+        "desc": "Minimizing soil disturbance helps maintain soil structure and microbial life."
+      },
+      "water": {
+        "title": "Water Management",
+        "desc": "Proper irrigation ensures optimal plant growth and prevents leaching."
+      },
+      "pest": {
+        "title": "Pest Management",
+        "desc": "Integrated pest management reduces chemical use and preserves beneficial insects."
+      },
+      "monitoring": {
+        "title": "Monitoring",
+        "desc": "Track soil health indicators regularly to make informed decisions."
+      }
+    }
+  },
+  "crop": {
+    "hero": {
+      "title": "AgroPrime",
+      "subtitle": "Knowledge. Growth. Sustainability."
+    },
+    "timelineTitle": "Step-by-Step Cultivation Process",
+    "sections": {
+      "cropCultivation": {
+        "title": "Crop Cultivation",
+        "text": "Crop cultivation is the practice of growing plants for food, fiber, and other uses. It involves preparing the land, selecting suitable seeds, sowing, irrigation, nutrient management, pest control, and harvesting. Sustainable methods help preserve soil fertility and ensure long-term productivity."
+      },
+      "selectingCrop": {
+        "title": "Selecting the Right Crop",
+        "text": "Choosing the right crop depends on factors like soil type, climate, water availability, and market demand. Rice and sugarcane thrive in high rainfall areas, while crops like millet and sorghum are ideal for dry regions."
+      },
+      "plantingTechniques": {
+        "title": "Planting Techniques",
+        "text": "Planting methods vary depending on the crop. Direct seeding works for wheat and maize, while transplanting is common for rice and tomatoes. Proper spacing ensures plants get enough sunlight and nutrients."
+      },
+      "bestPractices": {
+        "title": "Best Practices for Cultivation",
+        "text": "Adopt practices like Integrated Pest Management (IPM), crop rotation, soil testing, and efficient irrigation to maximize yield and protect the environment."
+      }
+    },
+    "steps": {
+      "plough": {
+        "title": "Plough & Level",
+        "desc": "Prepare the field for planting by ploughing and leveling."
+      },
+      "selectSeeds": {
+        "title": "Select Seeds",
+        "desc": "Choose high-quality seeds suited to local climate."
+      },
+      "planting": {
+        "title": "Planting",
+        "desc": "Plant seeds at correct depth and spacing."
+      },
+      "irrigation": {
+        "title": "Irrigation",
+        "desc": "Irrigate regularly according to crop needs."
+      },
+      "fertilization": {
+        "title": "Fertilization",
+        "desc": "Apply organic compost or fertilizers as needed."
+      },
+      "pestControl": {
+        "title": "Pest Control",
+        "desc": "Monitor for pests and use eco-friendly methods."
+      },
+      "harvesting": {
+        "title": "Harvesting",
+        "desc": "Harvest crops at optimal stage for best quality."
+      },
+      "storage": {
+        "title": "Storage",
+        "desc": "Dry and store grains or produce properly."
+      }
+    }
+  },
+  "site": {
+    "title": "AgroPrime",
+    "subtitle": "Knowledge. Growth. Sustainability."
+  },
+  "buttons": {
+    "back": "Back"
+  },
+  "irrigation": {
+    "surface": {
+      "title": "Surface Irrigation",
+      "text": "Surface irrigation involves flooding the field with water, allowing it to flow over the land. This method is suitable for crops like rice and wheat, where water can be evenly distributed across the field. However, it may lead to water wastage if not managed properly."
+    },
+    "drip": {
+      "title": "Drip Irrigation",
+      "text": "Drip irrigation delivers water directly to the plant roots through a network of tubes and emitters. This method is highly efficient, minimizing water loss and suitable for high-value crops like vegetables and fruits. It requires careful maintenance to prevent clogging of emitters."
+    },
+    "sprinkler": {
+      "title": "Sprinkler Irrigation",
+      "text": "Sprinkler irrigation uses sprinklers to spray water over the crops, mimicking rainfall. This method is versatile and can be used for various crops and terrains. However, it may not be as water-efficient as drip irrigation due to evaporation losses."
+    },
+    "subsurface": {
+      "title": "Subsurface Irrigation",
+      "text": "Subsurface irrigation involves burying perforated pipes or drip lines below the soil surface to deliver water directly to the root zone. This method is highly efficient, reducing water loss and weed growth. It is suitable for crops like sugarcane and cotton but requires careful installation and maintenance."
+    }
+  },
+  "modules": {
+    "title": "Additional Irrigation Modules",
+    "maintenance": {
+      "title": "Irrigation System Maintenance",
+      "text": "Regular cleaning of filters, checking pipelines for leaks, and ensuring uniform water flow to keep the system running efficiently."
+    },
+    "efficiency": {
+      "title": "Water Use Efficiency",
+      "text": "Using advanced methods to reduce water wastage, such as pressure regulation, flow meters, and precise emitter placement."
+    },
+    "scheduling": {
+      "title": "Irrigation Scheduling",
+      "text": "Planning irrigation timing and frequency based on crop needs, weather data, and soil moisture levels."
+    },
+    "cost": {
+      "title": "Cost Optimization",
+      "text": "Reducing operational costs by selecting energy-efficient pumps, automated controls, and minimizing water loss."
+    },
+    "technology": {
+      "title": "Smart Irrigation Technology",
+      "text": "Using IoT devices, sensors, and mobile apps to monitor and control irrigation systems remotely."
+    },
+    "irrigation": {
+      "timelineTitle": "Irrigation Techniques Timeline",
+      "timeline": {
+        "drip": {
+          "title": "Drip Irrigation",
+          "desc": "Delivers water directly to plant roots through tubes and emitters. Water-efficient and ideal for vegetables and fruits."
+        },
+        "sprinkler": {
+          "title": "Sprinkler Irrigation",
+          "desc": "Sprays water over crops like rainfall. Suitable for various crops and terrains, but may lose water through evaporation."
+        },
+        "surface": {
+          "title": "Surface Irrigation",
+          "desc": "Floods the field with water, allowing it to flow over the land. Suitable for rice and wheat, but may waste water if unmanaged."
+        },
+        "subsurface": {
+          "title": "Subsurface Irrigation",
+          "desc": "Buries drip lines or pipes below soil to deliver water directly to the roots. Highly efficient but needs careful installation."
+        }
+      }
+    }
+  },
+  "pestControl": {
+    "hero": {
+      "title": "Pest Control",
+      "subtitle": "Learn how to manage pests effectively and sustainably."
+    },
+    "intro": {
+      "title": "Pest Control",
+      "desc": "Effective pest management is crucial for maintaining healthy crops and maximizing yields. This section provides strategies for identifying, preventing, and controlling pests while minimizing environmental impact."
+    },
+    "identify": {
+      "title": "Identifying Common Pests",
+      "desc": "Accurate pest identification is the first step in effective control. Familiarize yourself with common pests in your region and their life cycles."
+    },
+    "pests": {
+      "aphids": {
+        "title": "Aphids",
+        "desc": "Small, soft-bodied insects that suck plant sap, causing stunted growth and leaf curling."
+      },
+      "caterpillars": {
+        "title": "Caterpillars",
+        "desc": "Larval stages of moths and butterflies that feed on leaves, stems, and fruits."
+      },
+      "whiteflies": {
+        "title": "Whiteflies",
+        "desc": "Tiny, winged insects that feed on plant sap and transmit viruses."
+      },
+      "spiderMites": {
+        "title": "Spider Mites",
+        "desc": "Minute arachnids that feed on plant cells, causing stippling and webbing."
+      }
+    }
+  }
+}

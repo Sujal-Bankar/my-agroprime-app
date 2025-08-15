@@ -1,0 +1,224 @@
+.hero-parallax {
+  /* height: 50vh;
+  background: linear-gradient(to bottom, #e0f7fa, #fff);
+  position: relative;
+  overflow: hidden; */
+  position: relative;
+  height: 350px;
+  background: linear-gradient(to bottom, #a8edea, #fed6e3);
+  overflow: hidden;
+}
+
+.hero-content {
+  text-align: center;
+  padding-top: 100px;
+  
+}
+
+.floating-elements .cloud {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatClouds 20s linear infinite;
+}
+
+.cloud1 { top: 20px; left: 10%; }
+.cloud2 { top: 50px; left: 40%; }
+.cloud3 { top: 80px; left: 70%; }
+.cloud4 { top: 30px; left: 90%; }
+
+@keyframes floatClouds {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100vw); }
+}
+
+.sun {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  font-size: 2.5rem;
+}
+
+
+.pest-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #1e40af;
+  animation: fadeIn 1s ease forwards;
+}
+
+.pest-title {
+  text-align: center;
+  color: #1e6823;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  animation: slideDown 0.8s ease forwards;
+}
+
+.pest-desc {
+  text-align: center;
+  line-height: 1.7;
+  font-size: 16px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.pest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+  gap: 25px;
+}
+
+.pest-card {
+  background: #f0f8f5;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards;
+}
+
+.pest-card:nth-child(1) { animation-delay: 0.1s; }
+.pest-card:nth-child(2) { animation-delay: 0.3s; }
+.pest-card:nth-child(3) { animation-delay: 0.5s; }
+.pest-card:nth-child(4) { animation-delay: 0.7s; }
+
+.pest-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+}
+
+.pest-card h2 {
+  color: #1e6823;
+  margin: 15px 0 10px;
+  font-size: 20px;
+}
+
+.pest-card p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #4a4a4a;
+}
+
+.pest-img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.pest-img:hover {
+  transform: scale(1.05) rotate(2deg);
+  filter: brightness(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .pest-grid {
+    grid-template-columns: 1fr; /* stack one by one on small screens */
+  }
+}
+
+
+
+
+.intro-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.intro-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 0.8s forwards;
+}
+
+.intro-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.pest-text {
+  flex: 1;
+}
+
+.pest-text h1 {
+  font-size: 32px;
+  color: #1e40af;
+  margin-bottom: 15px;
+}
+
+.pest-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.pest-image {
+  flex: 1;
+}
+
+.pest-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.pest-image img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+/* Animation */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro-row {
+    flex-direction: column;
+  }
+  .pest-text, .pest-image {
+    width: 100%;
+  }
+}
+
+
+.back-btn{
+
+    left: 180px;
+    position: relative;
+}
