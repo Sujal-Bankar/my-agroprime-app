@@ -1,27 +1,26 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../Css/AdminMain.css";
-import logo from "../images/logo.jpg";
+import "../../../Css/AdminMain.css";
+import logo from "../../../images/logo.jpg";
 
-const AdminMain = () => {
+const ProductsOptions = () => {
   const navigate = useNavigate();
 
   const options = [
-    { title: "Product Management", desc: "Add, edit, or remove products", icon: "🛒", path: "/ProductsOptions" },
-    { title: "Order Management", desc: "Track and manage customer orders", icon: "📦", path: "/OrderOptions" },
-    { title: "User Management", desc: "Manage registered users", icon: "👤", path: "/UserOptions" },
-    { title: "Download CSV", desc: "Export data as CSV files", icon: "⬇️", path: "/CsvOptions" },
+    { title: "Add Product", desc: "Add a new product to your catalog", icon: "➕", path: "/AddProduct" },
+    { title: "Remove Product", desc: "Delete a product from your catalog", icon: "❌", path: "/RemoveProduct" },
+    { title: "Edit Product", desc: "Modify existing product details", icon: "✏️", path: "/EditProduct" }
   ];
 
   return (
     <>
       <nav className="admin-navbar">
         <img src={logo} alt="Logo" className="logo" />
-<div onClick={()=>navigate("/AdminMain")} className="nav-title">Admin Dashboard</div>
+               <div onClick={()=>navigate("/AdminMain")} className="nav-title">Admin Dashboard</div>
       </nav>
 
       <div className="dashboard-container">
-        <h2>Welcome, Admin</h2>
+        <h2>Product Management</h2>
         <div className="options-grid">
           {options.map((option) => (
             <div
@@ -40,4 +39,4 @@ const AdminMain = () => {
   );
 };
 
-export default AdminMain;
+export default ProductsOptions;

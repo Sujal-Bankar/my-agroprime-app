@@ -29,7 +29,6 @@ import HelpPage from './Components/HelpPage'
 import ProductDetails from './Components/ProductDetails';
 import ViewOrder from './Components/ViewOrders';
 import ResetPassword from './Components/ResetPassword';
-import UsersData from './Components/UsersData';
 import OrderData from './Components/OrderData';
 import AdminMain from './Components/AdminMain';
 import AdminLogin from './Components/AdminLogin';
@@ -41,7 +40,12 @@ import SoilFertility from "./InformationSection/AllInfo/SoilFertility";
 import CropCultivation from "./InformationSection/AllInfo/CropCultivation";
 import IrrigationTechniques from "./InformationSection/AllInfo/IrrigationTechniques";
 import GovernmentSchemes from "./InformationSection/AllInfo/GovernmentSchemes";
-
+import ProductsOptions from './Components/admin-card/productManagement/productOptions';
+import UserOptions from './Components/admin-card/userManagment/userOptions';
+import OrderOptions from './Components/admin-card/orderManagement/orderOptions';
+import CsvOptions from './Components/admin-card/csvManagement/csvOptions';
+import ViewUsers from './Components/admin-card/userManagment/ViewUsers';
+import RemoveUsers from './Components/admin-card/userManagment/RemoveUsers';
 function App() {
   return (
     <Router>
@@ -67,10 +71,16 @@ function App() {
         <Route path="/ProductDetails"  element={<ProductDetails/>}></Route>
         <Route path="/ViewOrders"  element={<ViewOrder/>}></Route>
         <Route path="/ResetPassword"  element={<ResetPassword/>}></Route>
+
+
         <Route path="/Admin"  element={<AdminLogin/>}></Route>
         <Route path="/AdminMain"  element={<AdminMain/>}></Route>
-        <Route path="/UsersData"  element={<UsersData/>}></Route>
-        <Route path="/OrderData"  element={<OrderData/>}></Route>
+        <Route path="/ProductsOptions"  element={<ProductsOptions/>}></Route>
+        <Route path="/UserOptions"  element={<UserOptions/>}></Route>
+        <Route path="/OrderOptions"  element={<OrderOptions/>}></Route>
+        <Route path="/CsvOptions"  element={<CsvOptions/>}></Route>
+        <Route path="/ViewUsers"  element={<ViewUsers/>}></Route>
+        <Route path="/RemoveUsers"  element={<RemoveUsers/>}></Route>
       
         <Route path="/InfoSec"  element={<InfoSec/>}></Route>
         <Route path="/soil-fertility" element={<SoilFertility />} />

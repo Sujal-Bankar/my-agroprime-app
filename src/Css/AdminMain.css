@@ -1,93 +1,143 @@
-.admin-dashboard {
-  text-align: center;
-  padding: 40px 20px;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #f0fff0, #e6ffe6);
-  min-height: calc(100vh - 100px);
+/* General */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f7f9;
 }
 
-.admin-dashboard h2 {
-    margin-top: 100px;
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: linear-gradient(90deg, #4CAF50, #2E7D32);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  width: auto;
+  height: 70px;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.nav-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Dashboard container */
+.dashboard-container {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.dashboard-container h2 {
   font-size: 2rem;
-  font-weight: 700;
-  color: #006400;
+  color: #2E7D32;
   margin-bottom: 40px;
 }
 
-.admin-options {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 20px;
-  flex-wrap: wrap;
+/* Options grid */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
-.admin-card {
-  background: white;
-  padding: 35px 25px;
-  width: 270px;
+/* Cards */
+.option-card {
+  background: #fff;
+  padding: 30px 20px;
   border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.admin-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(34, 139, 34, 0.2),
-    rgba(0, 100, 0, 0.1)
-  );
-  transition: all 0.4s ease;
-  z-index: 0;
-}
-
-.admin-card:hover::before {
-  left: 0;
-}
-
-.admin-card:hover {
+.option-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
-.admin-card h3 {
-  color: #228B22;
-  margin-bottom: 12px;
-  font-size: 1.4rem;
-  position: relative;
-  z-index: 1;
+.option-icon { width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #46e446bc, #309230);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 auto 20px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.option-icon:hover{
+  box-shadow: 0 0 15px rgba(50, 205, 50, 0.7)
 }
 
-.admin-card p {
+.option-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #1B5E20;
+}
+
+.option-card p {
   font-size: 0.95rem;
   color: #555;
-  position: relative;
-  z-index: 1;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-  .admin-options {
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
+  .dashboard-container h2 {
+    font-size: 1.6rem;
   }
 
-  .admin-card {
-    width: 90%;
-    max-width: 350px;
-  }
-
-  .admin-dashboard h2 {
-    font-size: 1.5rem;
+  .option-card {
+    padding: 25px 15px;
   }
 }
+
+.users-table {
+  margin: 30px auto;
+  max-width: 800px;
+  overflow-x: auto;
+}
+
+.users-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.users-table th {
+  background-color: #228B22;
+  color: white;
+  font-weight: 600;
+}
+
+.remove-btn {
+  padding: 6px 12px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #e33c3c;
+}
+

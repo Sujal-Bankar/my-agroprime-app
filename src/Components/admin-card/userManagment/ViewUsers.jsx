@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../images/logo.jpg';
-import '../Css/UsersData.css';
+import logo from '../../../images/logo.jpg';
+import '../../../Css/ViewUsers.css';
 import { useNavigate } from 'react-router-dom';
 
-const UsersData = () => {
+const ViewUsers = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [users, setUsers] = useState([]);
@@ -81,4 +81,4 @@ const UsersData = () => {
   );
 };
 
-export default UsersData;
+export default ViewUsers;

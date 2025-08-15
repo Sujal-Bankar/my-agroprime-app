@@ -117,7 +117,18 @@ const getOneUserForAdmin = async(req,res)=>{
     return res.status(500).json({ message: error.message });
   }
 }
-
+const DeleteOneUserForAdmin = async(req,res)=>{
+  const email = req.params.email;
+  const user = await User.findOneAndDelete({email});
+  try {
+    if(user){
+      return res.status(200).json("Deleted");
+    }
+    return res.status(400).json("Not Done");
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
 const deleteProductForAdmin = async(req,res)=>{
   const email = req.params.email;
   const order = await Order.findOneAndDelete({email});
@@ -158,4 +169,15 @@ const makePayment = async (req,res)=>{
   }
 }
 
-module.exports={storeUser,loginUser,createOrder,getUserOrders,updateUser,getUserForAdmin,getOrderForAdmin,getOneUserForAdmin,deleteProductForAdmin,makePayment}
+module.exports={storeUser,
+  loginUser,
+  createOrder,
+  getUserOrders,
+  updateUser,
+  getUserForAdmin,
+  getOrderForAdmin,
+  getOneUserForAdmin,
+  deleteProductForAdmin,
+  makePayment,
+  DeleteOneUserForAdmin
+}
