@@ -10,9 +10,23 @@ const AgroProducts = () => {
   const { addToCart, cartItems } = useContext(CartContext);
   const [addedItems, setAddedItems] = useState([]);
 
-  const products =[
-    ...agroproductdata
-  ]
+  const [products , setProducts] = useState([]);
+
+  const fetchProducts() = async()=>{
+    try 
+    {
+      const response = fetch(`https://my-agroprime-app.onrender.com/${category}`);
+    const data = await response.json();
+    if(response.ok){
+      setProducts(data)
+    }
+  } catch(error){
+    console.error(error);
+  }
+  }
+  useEffect(()=>{
+    fetchProducts();
+  })
 
   const cartList = (item, index) => {
     addToCart(item);

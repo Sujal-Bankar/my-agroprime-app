@@ -170,8 +170,9 @@ const makePayment = async (req,res)=>{
   }
 }
 const getAllProducts = async(req,res)=>{
-  const product = await Product.find();
+  const category = req.body.category;
   try {
+    const product = await Product.find({category});
     if(product){
       return res.status(200).json(product);
     }

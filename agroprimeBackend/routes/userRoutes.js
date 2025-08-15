@@ -15,7 +15,7 @@ routes.get('/getAllOrders',getOrderForAdmin)
 routes.get('/getOneUser/:email',getOneUserForAdmin)
 routes.get('/deleteOrder/:email',deleteOrderForAdmin)
 routes.get('/deleteUser/:email',DeleteOneUserForAdmin)
-routes.get('/getAllProducts',getAllProducts)
+routes.get('/getAllProducts/:category',getAllProducts)
 routes.post('/addProduct',addProduct)
 
 routes.post('/create-checkout-session', async (req, res) => {
