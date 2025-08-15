@@ -432,7 +432,8 @@ const AllProduct = () => {
   desc: "Protects crops from excess sunlight",
   price: "₹2,48,368",
   image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZeeIYEJp28bCSrvtHNETf_ORiCBG9J3vxfw&s"
-}
+},
+
 
 ];
 
