@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../../../Css/RemoveProduct.css"; // custom CSS
 import logo from "../../../images/logo.jpg";
+import { useNavigate } from "react-router-dom";
 
 const RemoveProducts = () => {
   const [products, setProducts] = useState([]);
-
+    const navigate = useNavigate();
   const getProducts = async () => {
     try {
       const response = await fetch(
@@ -26,11 +27,9 @@ const RemoveProducts = () => {
 
     try {
       const response = await fetch(
-        `https://my-agroprime-app.onrender.com/api/removeProduct/${name}`,
-        { method: "Post" }
-      );
+        `https://my-agroprime-app.onrender.com/api/removeProduct/${name}`);
       if (response.ok) {
-        Navigate("/RemoveProduct");
+        navigate("/RemoveProduct");
       } else {
         console.error("Error deleting product");
       }
@@ -45,11 +44,10 @@ const RemoveProducts = () => {
 
   return (
     <div className="remove-products-container">
-      {/* Navbar */}
       <nav className="admin-navbar">
-        <img src={logo} alt="Logo" className="logo" />
-        <h1 className="nav-title">Remove Products</h1>
-      </nav>
+              <img src={logo} alt="Logo" className="logo" />
+                     <div onClick={()=>navigate("/AdminMain")} className="nav-title">Admin Dashboard</div>
+            </nav>
 
       <div className="content">
         <h2>Product List</h2>
