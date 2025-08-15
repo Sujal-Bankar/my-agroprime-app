@@ -1,5 +1,6 @@
 const User = require('../model/User');
 const Order = require('../model/order');
+const Product = require('../model/product');
 
 const storeUser = async(req,res) =>{
     try {
@@ -168,7 +169,17 @@ const makePayment = async (req,res)=>{
     res.status(500).json({ error: "Something went wrong" });
   }
 }
-
+const getAllProducts = async(req,res)=>{
+  const product = await Product.find();
+  try {
+    if(product){
+      return res.status(200).json({message: "All Products Fetched Successfully"},product);
+    }
+    return res.status(400).json("Not Done");
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
 module.exports={storeUser,
   loginUser,
   createOrder,
@@ -179,5 +190,6 @@ module.exports={storeUser,
   getOneUserForAdmin,
   deleteOrderForAdmin,
   makePayment,
-  DeleteOneUserForAdmin
+  DeleteOneUserForAdmin,
+  getAllProducts
 }

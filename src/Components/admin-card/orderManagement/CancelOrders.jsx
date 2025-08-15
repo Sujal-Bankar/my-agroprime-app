@@ -25,7 +25,7 @@ const fetchOrders = async () => {
         const data = await response.json();
         if(response.ok){
           alert('Delivery Cancelled')
-        }
+          navigate('/CancelOrders')        }
       } catch (error) {
         console.error(error.message);
       }
