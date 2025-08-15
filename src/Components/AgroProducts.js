@@ -14,7 +14,7 @@ const AgroProducts = () => {
   const fetchProducts = async()=>{
     try 
     {
-    const response = fetch(`https://my-agroprime-app.onrender.com/api/agroproducts`);
+    const response = await fetch(`https://my-agroprime-app.onrender.com/api/getAllProducts/agroproducts`);
     const data = await response.json();
     if(response.ok){
       setProducts(data)
