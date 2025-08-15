@@ -182,10 +182,10 @@ const getAllProducts = async(req,res)=>{
 }
 
 const addProduct = async(req,res)=>{
-  const { } = req.body;
+  const {name, description , price , unit ,image} = req.body;
 
   try {
-    const product = new Product({});
+    const product = new Product({name, description , price , unit ,image});
     await product.save();
     res.status(200).json({ message: "Product Added", product });
   } catch (err) {

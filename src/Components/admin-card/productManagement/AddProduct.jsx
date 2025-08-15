@@ -10,6 +10,7 @@ const navigate = useNavigate();
     name: "",
     description: "",
     price: "",
+    unit:"",
     image: "",
   });
 
@@ -38,7 +39,7 @@ const navigate = useNavigate();
     } catch (error) {
         console.log(error);        
     }
-    setProduct({ name: "", description: "", price: "", image: "" });
+    setProduct({ name: "", description: "", price: "",unit:"", image: "" });
   };
 
   return (
@@ -73,6 +74,15 @@ const navigate = useNavigate();
             value={product.price}
             onChange={handleChange}
             placeholder="Product Price"
+            required
+          />
+          
+          <input
+            type="text"
+            name="unit"
+            value={product.unit}
+            onChange={handleChange}
+            placeholder="Product Unit"
             required
           />
           <input
