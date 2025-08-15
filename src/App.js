@@ -46,6 +46,8 @@ import OrderOptions from './Components/admin-card/orderManagement/orderOptions';
 import CsvOptions from './Components/admin-card/csvManagement/csvOptions';
 import ViewUsers from './Components/admin-card/userManagment/ViewUsers';
 import RemoveUsers from './Components/admin-card/userManagment/RemoveUsers';
+import ViewOrders from './Components/admin-card/orderManagement/ViewOrders';
+import CancelOrders from './Components/admin-card/orderManagement/CancelOrders';
 function App() {
   return (
     <Router>
@@ -81,6 +83,8 @@ function App() {
         <Route path="/CsvOptions"  element={<CsvOptions/>}></Route>
         <Route path="/ViewUsers"  element={<ViewUsers/>}></Route>
         <Route path="/RemoveUsers"  element={<RemoveUsers/>}></Route>
+        <Route path="/ViewOrdersAdmin"  element={<ViewOrders/>}></Route>
+        <Route path="/CancelOrders"  element={<CancelOrders/>}></Route>
       
         <Route path="/InfoSec"  element={<InfoSec/>}></Route>
         <Route path="/soil-fertility" element={<SoilFertility />} />

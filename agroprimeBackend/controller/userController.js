@@ -129,9 +129,9 @@ const DeleteOneUserForAdmin = async(req,res)=>{
     return res.status(500).json({ message: error.message });
   }
 }
-const deleteProductForAdmin = async(req,res)=>{
-  const email = req.params.email;
-  const order = await Order.findOneAndDelete({email});
+const deleteOrderForAdmin = async(req,res)=>{
+  const id = req.params.id;
+  const order = await Order.findOneAndDelete({id});
   try {
     if(order){
       return res.status(200).json(order);
@@ -177,7 +177,7 @@ module.exports={storeUser,
   getUserForAdmin,
   getOrderForAdmin,
   getOneUserForAdmin,
-  deleteProductForAdmin,
+  deleteOrderForAdmin,
   makePayment,
   DeleteOneUserForAdmin
 }

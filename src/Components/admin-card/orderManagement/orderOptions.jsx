@@ -11,13 +11,13 @@ const OrderOptions = () => {
       title: "View Orders",
       desc: "See and manage all registered orders",
       icon: "👤",
-      path: "/ViewUsers"
+      path: "/ViewOrdersAdmin"
     },
     {
       title: "Cancel Orders",
       desc: "Delete Order from the system",
       icon: "❌",
-      path: "/RemoveUsers"
+      path: "/CancelOrders"
     },
     {
       title: "Export CSV",
