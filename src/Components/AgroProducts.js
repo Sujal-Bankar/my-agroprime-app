@@ -4,12 +4,15 @@ import Navbar from './Navbar';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
-
+import agroproductdata from '../productData/agroProducts'
 const AgroProducts = () => {
   const navigate = useNavigate();
   const { addToCart, cartItems } = useContext(CartContext);
   const [addedItems, setAddedItems] = useState([]);
-  const [products, setProducts] = useState([]);
+
+  const products =[
+    ...agroproductdata
+  ]
 
   const cartList = (item, index) => {
     addToCart(item);
@@ -30,21 +33,6 @@ const AgroProducts = () => {
   navigate("/ProductDetails");
 }
 
-  const fetchProducts = async()=>{
-    try {
-      const response = await fetch('https://my-agroprime-app.onrender.com/api/getAllProducts');
-      const data = await response.json();
-      if(response.ok){
-      setProducts(data);
-    }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(()=>{
-    fetchProducts();
-  },[])
 
   return (
     <div className="agro-container">
