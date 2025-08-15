@@ -173,7 +173,7 @@ const getAllProducts = async(req,res)=>{
   const product = await Product.find();
   try {
     if(product){
-      return res.status(200).json({message: "All Products Fetched Successfully"},product);
+      return res.status(200).json(product);
     }
     return res.status(400).json("Not Done");
   } catch (error) {

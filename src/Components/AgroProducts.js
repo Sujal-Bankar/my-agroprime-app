@@ -32,19 +32,19 @@ const AgroProducts = () => {
 
   const fetchProducts = async()=>{
     try {
-      const response = await fetch('https://my-agroprime-app.vercel.app/api/getAllProducts');
+      const response = await fetch('https://my-agroprime-app.onrender.com/api/getAllProducts');
       const data = await response.json();
       if(response.ok){
       setProducts(data);
     }
     } catch (error) {
-      
+      console.log(error);
     }
   }
 
   useEffect(()=>{
     fetchProducts();
-  })
+  },[])
 
   return (
     <div className="agro-container">
