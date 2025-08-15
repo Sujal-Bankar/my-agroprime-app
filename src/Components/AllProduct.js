@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Css/cashcrops.css";
 import Navbar from "./Navbar";
 import { Link } from 'react-router-dom';
@@ -7,9 +7,7 @@ import { CartContext } from './CartContext';
 import allproductdata from '../productData/allProducts'
 
 const AllProduct = () => {
-  const products = [
-    ...allproductdata
-];
+  const [products , setProducts] = useState([]);
 
       const { addToCart, cartItems } = useContext(CartContext);
       const [addedItems, setAddedItems] = useState([]);
@@ -19,6 +17,21 @@ const AllProduct = () => {
         setAddedItems(prev => [...prev, index]);
       };
     
+const fetchProducts = async()=>{
+    try 
+    {
+    const response = await fetch(`https://my-agroprime-app.onrender.com/api/getAllProducts/allproducts`);
+    const data = await response.json();
+    if(response.ok){
+      setProducts(data)
+    }
+  } catch(error){
+    console.error(error);
+  }
+  }
+  useEffect(()=>{
+    fetchProducts();
+  },[])
 
   return (
     <div className="all-product-page">

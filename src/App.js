@@ -49,6 +49,7 @@ import RemoveUsers from './Components/admin-card/userManagment/RemoveUsers';
 import ViewOrders from './Components/admin-card/orderManagement/ViewOrders';
 import CancelOrders from './Components/admin-card/orderManagement/CancelOrders';
 import AddProduct from './Components/admin-card/productManagement/AddProduct';
+import RemoveProducts from './Components/admin-card/productManagement/RemoveProducts';
 function App() {
   return (
     <Router>
@@ -87,6 +88,7 @@ function App() {
         <Route path="/ViewOrdersAdmin"  element={<ViewOrders/>}></Route>
         <Route path="/CancelOrders"  element={<CancelOrders/>}></Route>
         <Route path="/AddProduct"  element={<AddProduct/>}></Route>
+        <Route path="/RemoveProduct"  element={<RemoveProducts/>}></Route>
       
         <Route path="/InfoSec"  element={<InfoSec/>}></Route>
         <Route path="/soil-fertility" element={<SoilFertility />} />

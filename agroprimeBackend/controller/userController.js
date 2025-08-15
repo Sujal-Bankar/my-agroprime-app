@@ -181,16 +181,35 @@ const getAllProducts = async(req,res)=>{
     return res.status(500).json({ message: error.message });
   }
 }
-
+const getAllProductsWihtoutCategory = async(req,res)=>{
+   try{ const product = await Product.find();
+    if(product){
+      return res.status(200).json(product);
+    }
+    return res.status(400).json("Not Done");
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
 const addProduct = async(req,res)=>{
-  const {name, description , price , unit ,image} = req.body;
+  const {category, name, description , price , unit ,image} = req.body;
 
   try {
-    const product = new Product({name, description , price , unit ,image});
+    const product = new Product({category , name, description , price , unit ,image});
     await product.save();
     res.status(200).json({ message: "Product Added", product });
   } catch (err) {
     res.status(500).json({ message: "Product Not Added", error: err });
+  } 
+}
+const removeProduct = async(req,res)=>{
+  const name = req.params.name;
+  try {
+    const product = await Product.findOneAndDelete({name});
+    if(product)
+    res.status(200).json({ message: "Product Deleted", product });
+  } catch (err) {
+    res.status(500).json({ message: "Product Not Deleted", error: err });
   } 
 }
 module.exports={storeUser,
@@ -205,5 +224,7 @@ module.exports={storeUser,
   makePayment,
   DeleteOneUserForAdmin,
   getAllProducts,
-  addProduct
+  getAllProductsWihtoutCategory,
+  addProduct,
+  removeProduct
 }

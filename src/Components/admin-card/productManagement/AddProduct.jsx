@@ -7,6 +7,7 @@ const AddProduct = () => {
 const navigate = useNavigate();
 
   const [product, setProduct] = useState({
+    category:"",
     name: "",
     description: "",
     price: "",
@@ -39,7 +40,7 @@ const navigate = useNavigate();
     } catch (error) {
         console.log(error);        
     }
-    setProduct({ name: "", description: "", price: "",unit:"", image: "" });
+    setProduct({ category:"",name: "", description: "", price: "",unit:"", image: "" });
   };
 
   return (
@@ -52,6 +53,14 @@ const navigate = useNavigate();
       <div className="add-product-container">
         <h2>Add a New Product</h2>
         <form className="add-product-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="category"
+            value={product.category}
+            onChange={handleChange}
+            placeholder="Product Category"
+            required
+          />
           <input
             type="text"
             name="name"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Css/FertilizerProducts.css';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
@@ -8,10 +8,8 @@ import fertilizerproductdata from '../productData/fertilizerProducts'
 
 
 const FertilizerProducts = () => {
-
-  const products = [
-    ...fertilizerproductdata
-  ]
+    const [products , setProducts] = useState([]);
+    
   
       const { addToCart, cartItems } = useContext(CartContext);
       const [addedItems, setAddedItems] = useState([]);
@@ -20,6 +18,22 @@ const FertilizerProducts = () => {
         addToCart(item);
         setAddedItems(prev => [...prev, index]);
       };
+      const fetchProducts = async()=>{
+          try 
+          {
+          const response = await fetch(`https://my-agroprime-app.onrender.com/api/getAllProducts/fertilizerproducts`);
+          const data = await response.json();
+          if(response.ok){
+            setProducts(data)
+          }
+        } catch(error){
+          console.error(error);
+        }
+        }
+        useEffect(()=>{
+          fetchProducts();
+        },[])
+      
     
   return (
     <div className="fertilizer-page">

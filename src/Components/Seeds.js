@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Css/cashcrops.css';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
@@ -8,9 +8,7 @@ import seedproductdata from '../productData/seedProducts'
 
 const SeedsPage = () => {
 
-  const seedProducts = [
-    ...seedproductdata
-];
+  const [seedProducts, setSeedProducts] = useState([]);
   const { addToCart, cartItems } = useContext(CartContext);
   const [addedItems, setAddedItems] = useState([]);
 
@@ -18,6 +16,21 @@ const SeedsPage = () => {
     addToCart(item);
     setAddedItems(prev => [...prev, index]);
   };
+const fetchProducts = async()=>{
+    try 
+    {
+    const response = await fetch(`https://my-agroprime-app.onrender.com/api/getAllProducts/seedproducts`);
+    const data = await response.json();
+    if(response.ok){
+      setSeedProducts(data)
+    }
+  } catch(error){
+    console.error(error);
+  }
+  }
+  useEffect(()=>{
+    fetchProducts();
+  },[])
 
   
   return (
