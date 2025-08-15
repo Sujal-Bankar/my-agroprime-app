@@ -46,7 +46,7 @@ const RemoveProducts = () => {
     <div className="remove-products-container">
       <nav className="admin-navbar">
               <img src={logo} alt="Logo" className="logo" />
-                     <div onClick={()=>navigate("/AdminMain")} className="nav-title">Admin Dashboard</div>
+            <div onClick={()=>navigate("/AdminMain")} className="nav-title">Admin Dashboard</div>
             </nav>
 
       <div className="content">
