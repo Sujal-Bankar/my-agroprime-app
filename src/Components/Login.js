@@ -51,16 +51,14 @@ function Login() {
             <input type="email" placeholder="Email" name="email" onChange={handleChange} required />
             <input type="password" placeholder="Password" name="password" onChange={handleChange} required />
             <div className="options">
-              <label style={{width:'130px'}}>
-                <input type="checkbox" style={{width:'20px'}}/><p style={{position:'relative',top:'13px'}}>Remember me</p> 
-              </label>
-              <Link to="/ForgetPassword">Forgot your password?</Link>
+              <Link style={{marginLeft:'60px'}} to="/ForgetPassword">Forgot your password?</Link>
             </div>
             <button type="submit">Sign in</button>
           </form>
-          <div className="signup-link">
+          <div className="signup-link" style={{marginBottom:'10px'}}>
             Don't have an account? <Link to="/sign">Sign up</Link>
           </div>
+          <Link to="/admin" style={{textShadow:'0 0px 3px white',fontWeight:'600',fontSize:'15px', color:'green', textDecoration:'none'}}>Login As Admin</Link>
         </div>
       </div>
       </div>
