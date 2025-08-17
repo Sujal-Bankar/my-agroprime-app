@@ -1,7 +1,7 @@
 const express = require('express');
 const { storeUser, loginUser, createOrder, getUserOrders, updateUser, getUserForAdmin, getOrderForAdmin, getOneUserForAdmin, deleteProductForAdmin, makePayment, DeleteOneUserForAdmin, deleteOrderForAdmin, getAllProducts, addProduct, removeProduct, getAllProductsWihtoutCategory } = require('../controller/userController');
 const routes = express.Router();
-import Product from '../model/product'
+const Product = require('../model/product');
 const { Parser } = require("json2csv");
 const Stripe = require('stripe');
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
