@@ -59,7 +59,7 @@ routes.post('/create-checkout-session', async (req, res) => {
   }
 });
 
-routes.get("/export-csv", async (req, res) => {
+routes.get("/export-csv-product", async (req, res) => {
   try {
     
     const products = await Product.find().lean();
@@ -71,6 +71,67 @@ routes.get("/export-csv", async (req, res) => {
 
     res.header("Content-Type", "text/csv");
     res.attachment("products.csv");
+    return res.send(csv);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error exporting CSV");
+  }
+});
+
+routes.get("/export-csv-user", async (req, res) => {
+  try {
+    
+    const users = await User.find().lean();
+
+    
+    const fields = ["name","email", "password", "phno"];
+    const json2csvParser = new Parser({ fields });
+    const csv = json2csvParser.parse(users);
+
+    res.header("Content-Type", "text/csv");
+    res.attachment("users.csv");
+    return res.send(csv);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error exporting CSV");
+  }
+});
+routes.get("/export-csv-order", async (req, res) => {
+  try {
+    
+    const orders = await Order.find().lean();
+
+     const flatorders = orders.map(order => ({
+      OrderID: order._id,
+      Email: order.email,
+      CreatedAt: order.createdAt.toISOString(),
+      Items: order.items.map(i => `${i.name} x${i.quantity}`).join("; "),
+      TotalAmount: order.grandTotal || order.totalAmount,
+      PaymentMethod: order.paymentInfo?.method || "",
+      PaymentStatus: order.paymentInfo?.status || "",
+      Status: order.status,
+      ShippingAddress: `${order.shippingInfo.street}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.zip}, ${order.shippingInfo.country || ""}`,
+      Phone: order.shippingInfo.phone
+    }));
+    const fields = [
+      "OrderID",
+      "Email",
+      "CreatedAt",
+      "Items",
+      "TotalAmount",
+      "PaymentMethod",
+      "PaymentStatus",
+      "Status",
+      "ShippingAddress",
+      "Phone"
+    ];
+    const json2csvParser = new Parser({ fields });
+    const csv = json2csvParser.parse(flatorders);
+
+    res.header("Content-Type", "text/csv");
+    res.attachment("orders.csv");
     return res.send(csv);
 
   } catch (error) {

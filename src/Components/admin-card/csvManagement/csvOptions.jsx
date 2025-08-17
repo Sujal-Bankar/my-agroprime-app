@@ -6,8 +6,8 @@ import logo from "../../../images/logo.jpg";
 const CsvOptions = () => {
   const navigate = useNavigate();
 
-   const handleExport = () => {
-    fetch("https://my-agroprime-app.onrender.com/api/export-csv") 
+   const handleProduct = () => {
+    fetch("https://my-agroprime-app.onrender.com/api/export-csv-product") 
       .then((res) => res.blob())
       .then((blob) => {
         
@@ -20,25 +20,56 @@ const CsvOptions = () => {
         a.remove();
       });
   };
+  const handleUser = () => {
+    fetch("https://my-agroprime-app.onrender.com/api/export-csv-user") 
+      .then((res) => res.blob())
+      .then((blob) => {
+        
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "users.csv";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+  };
+  const handleOrder = () => {
+    fetch("https://my-agroprime-app.onrender.com/api/export-csv-order") 
+      .then((res) => res.blob())
+      .then((blob) => {
+        
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "orders.csv";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+  };
 
   const options = [
     {
       title: "Users CSV",
       desc: "Download all registered users as CSV",
       icon: "👤",
-      path: "/ExportUsersCSV"
+      path: "/ExportUsersCSV",
+      call: "handleUser"
     },
     {
       title: "Products CSV",
       desc: "Download all products as CSV",
       icon: "🛒",
-      path: "/ExportProductsCSV"
+      path: "/ExportProductsCSV",
+      call:"handleProduct"
     },
     {
       title: "Orders CSV",
       desc: "Download all orders as CSV",
       icon: "📦",
-      path: "/ExportOrdersCSV"
+      path: "/ExportOrdersCSV",
+      call: "handleOrder"
     }
   ];
 
@@ -56,7 +87,7 @@ const CsvOptions = () => {
             <div
               key={option.title}
               className="option-card"
-              onClick={handleExport}
+              onClick={option.call}
             >
               <div className="option-icon">{option.icon}</div>
               <h3>{option.title}</h3>
