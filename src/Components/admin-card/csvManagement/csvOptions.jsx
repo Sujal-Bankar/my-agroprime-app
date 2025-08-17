@@ -6,6 +6,21 @@ import logo from "../../../images/logo.jpg";
 const CsvOptions = () => {
   const navigate = useNavigate();
 
+   const handleExport = () => {
+    fetch("https://my-agroprime-app.onrender.com/api/export-csv") 
+      .then((res) => res.blob())
+      .then((blob) => {
+        
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "products.csv";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+  };
+
   const options = [
     {
       title: "Users CSV",
@@ -41,7 +56,7 @@ const CsvOptions = () => {
             <div
               key={option.title}
               className="option-card"
-              onClick={() => navigate(option.path)}
+              onClick={handleExport}
             >
               <div className="option-icon">{option.icon}</div>
               <h3>{option.title}</h3>
