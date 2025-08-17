@@ -55,21 +55,21 @@ const CsvOptions = () => {
       desc: "Download all registered users as CSV",
       icon: "👤",
       path: "/ExportUsersCSV",
-      call: "handleUser"
+      call: handleUser
     },
     {
       title: "Products CSV",
       desc: "Download all products as CSV",
       icon: "🛒",
       path: "/ExportProductsCSV",
-      call:"handleProduct"
+      call: handleProduct
     },
     {
       title: "Orders CSV",
       desc: "Download all orders as CSV",
       icon: "📦",
       path: "/ExportOrdersCSV",
-      call: "handleOrder"
+      call: handleOrder
     }
   ];
 
