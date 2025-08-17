@@ -5,25 +5,42 @@ import logo from "../../../images/logo.jpg";
 
 const OrderOptions = () => {
   const navigate = useNavigate();
+    const handleOrder = () => {
+    fetch("https://my-agroprime-app.onrender.com/api/export-csv-order") 
+      .then((res) => res.blob())
+      .then((blob) => {
+        
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "orders.csv";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+  };
 
   const options = [
     {
       title: "View Orders",
       desc: "See and manage all registered orders",
       icon: "👤",
-      path: "/ViewOrdersAdmin"
+      path: "/ViewOrdersAdmin",
+      call: null
     },
     {
       title: "Cancel Orders",
       desc: "Delete Order from the system",
       icon: "❌",
-      path: "/CancelOrders"
+      path: "/CancelOrders",
+      call: null
     },
     {
       title: "Export CSV",
       desc: "Download all order data as CSV",
       icon: "⬇️",
-      path: "/ExportOrdersCSV"
+      path: null,
+      call: handleOrder
     }
   ];
 
@@ -41,7 +58,7 @@ const OrderOptions = () => {
             <div
               key={option.title}
               className="option-card"
-              onClick={() => navigate(option.path)}
+              onClick={() => {option.path? navigate(option.path) : option.call()}}
             >
               <div className="option-icon">{option.icon}</div>
               <h3>{option.title}</h3>

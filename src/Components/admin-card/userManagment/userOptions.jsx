@@ -5,27 +5,46 @@ import logo from "../../../images/logo.jpg";
 
 const UserOptions = () => {
   const navigate = useNavigate();
-
+  const handleUser = () => {
+    fetch("https://my-agroprime-app.onrender.com/api/export-csv-user") 
+      .then((res) => res.blob())
+      .then((blob) => {
+        
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "users.csv";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+  };
   const options = [
     {
       title: "View Users",
       desc: "See and manage all registered users",
       icon: "👤",
-      path: "/ViewUsers"
+      path: "/ViewUsers",
+      call: null
     },
     {
       title: "Remove Users",
       desc: "Delete user accounts from the system",
       icon: "❌",
-      path: "/RemoveUsers"
+      path: "/RemoveUsers",
+      call: null
     },
     {
       title: "Export CSV",
       desc: "Download all user data as CSV",
       icon: "⬇️",
-      path: "/ExportUsersCSV"
+      path: null,
+      call: handleUser
+
     }
   ];
+    
+
 
   return (
     <>
@@ -41,7 +60,7 @@ const UserOptions = () => {
             <div
               key={option.title}
               className="option-card"
-              onClick={() => navigate(option.path)}
+              onClick={() => {option.path? navigate(option.path) : option.call()  }}
             >
               <div className="option-icon">{option.icon}</div>
               <h3>{option.title}</h3>
